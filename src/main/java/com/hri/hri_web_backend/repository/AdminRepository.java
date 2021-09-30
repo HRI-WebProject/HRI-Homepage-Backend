@@ -4,7 +4,7 @@ import com.hri.hri_web_backend.domain.Administrator;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
-public interface AdministratorRepository extends JpaRepository<Administrator, Long> {
+public interface AdminRepository extends JpaRepository<Administrator, Long> {
     Optional<Administrator> findByUsernameAndPassword(String username, String password);
     @Override
     Optional<Administrator> findById(Long id);
