@@ -5,6 +5,7 @@ import com.hri.hri_web_backend.domain.Member;
 public class MemberFixture {
 
 	public static class Member1{
+		public static final Long ID = 1L;
 		public static final String NAME = "member1";
 		public static final String ENG_NAME = "member1_eng";
 		public static final String EMAIL = "member1@test.com";
@@ -23,6 +24,7 @@ public class MemberFixture {
 	}
 
 	public static class Member2{
+		public static final Long ID = 2L;
 		public static final String NAME = "member2";
 		public static final String ENG_NAME = "member2_eng";
 		public static final String EMAIL = "member2@test.com";

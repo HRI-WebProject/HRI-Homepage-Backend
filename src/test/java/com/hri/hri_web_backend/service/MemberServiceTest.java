@@ -14,6 +14,7 @@ import static org.mockito.BDDMockito.*;
 import static org.mockito.Mockito.times;
 
 import java.util.List;
+import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
 class MemberServiceTest {
@@ -24,7 +25,7 @@ class MemberServiceTest {
     @Mock
     MemberRepository memberRepository;
 
-    @DisplayName("모든 구성원을 가져온다")
+    @DisplayName("모든 구성원 및 졸업생을 가져온다")
     @Test
     public void getMember() throws Exception {
         //when
@@ -33,7 +34,7 @@ class MemberServiceTest {
         then(memberRepository).should(times(1)).findAll();
     }
 
-    @DisplayName("구성원을 등록한다")
+    @DisplayName("구성원 및 졸업생을 등록한다")
     @Test
     public void registerMember() throws Exception {
         //given
@@ -42,5 +43,21 @@ class MemberServiceTest {
         memberService.registerMember(member);
         //then
         then(memberRepository).should(times(1)).save(member);
+    }
+
+    @DisplayName("구성원 및 졸업생을 수정한다")
+    @Test
+    public void updateMember() throws Exception {
+        //given
+        final Member member = Member1.MEMBER;
+
+        final Optional<Member> updateMember = Optional.of(Member1.MEMBER);
+        given(memberRepository.findById(any())).willReturn(updateMember);
+
+        //when
+        memberService.changeMemberInfo(member, Member1.ID);
+
+        //then
+        then(memberRepository).should(times(1)).save(any());
     }
 }

@@ -23,7 +23,7 @@ public class MemberController {
         List<Member> members = memberService.getMember();
         return SuccessResponse.builder()
             .status(StatusEnum.OK)
-            .message("모든 구성원 조회 성공")
+            .message("모든 구성원 및 졸업생 조회 성공")
             .data(members)
             .build();
     }
@@ -34,7 +34,17 @@ public class MemberController {
         memberService.registerMember(member);
         return SuccessResponse.builder()
             .status(StatusEnum.OK)
-            .message("구성원 등록 성공")
+            .message("구성원 및 졸업생 등록 성공")
+            .build();
+    }
+
+    @ResponseBody
+    @PutMapping("/members/{id}")
+    public SuccessResponse updateMember(@Valid @RequestBody Member member, @PathVariable long id){
+        memberService.changeMemberInfo(member, id);
+        return SuccessResponse.builder()
+            .status(StatusEnum.OK)
+            .message("구성원 및 졸업생 수정 성공")
             .build();
     }
 }
