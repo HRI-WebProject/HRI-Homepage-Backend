@@ -6,44 +6,36 @@ import lombok.Getter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import com.sun.istack.NotNull;
 
 @Entity
 @Getter
 public class Member {
     @Id
-    @GeneratedValue
-    @NotNull
-    @Column(name = "member_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "member_id", nullable = false)
     private Long id;
 
-    @NotNull
+    @Column(nullable = false)
     private String name;
 
-    @NotNull
+    @Column(name = "eng_name")
     private String engName;
 
-    @NotNull
     private String email;
 
-    @NotNull
     private String photo;
 
-    @NotNull
     private String degree;
 
-    @NotNull
     private String graduate;
 
     protected Member() {
-
     }
 
     @Builder
-    public Member(Long id, String name, String engName, String email, String photo, String degree, String graduate) {
-        this.id = id;
+    public Member(String name, String engName, String email, String photo, String degree, String graduate) {
         this.name = name;
         this.engName = engName;
         this.email = email;

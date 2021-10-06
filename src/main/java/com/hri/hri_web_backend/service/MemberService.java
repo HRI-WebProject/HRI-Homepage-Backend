@@ -20,4 +20,8 @@ public class MemberService {
     public List<Member> getMember(){
         return memberRepository.findAll();
     }
+
+    public void registerMember(Member member){
+        memberRepository.save(member);
+    }
 }

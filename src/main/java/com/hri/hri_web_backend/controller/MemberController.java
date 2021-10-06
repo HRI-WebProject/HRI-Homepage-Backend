@@ -2,6 +2,8 @@ package com.hri.hri_web_backend.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.hri.hri_web_backend.global.StatusEnum;
 import com.hri.hri_web_backend.global.SuccessResponse;
 import com.hri.hri_web_backend.domain.Member;
@@ -23,6 +25,16 @@ public class MemberController {
             .status(StatusEnum.OK)
             .message("모든 구성원 조회 성공")
             .data(members)
+            .build();
+    }
+
+    @ResponseBody
+    @PostMapping("/members")
+    public SuccessResponse registerMember(@Valid @RequestBody Member member){
+        memberService.registerMember(member);
+        return SuccessResponse.builder()
+            .status(StatusEnum.OK)
+            .message("구성원 등록 성공")
             .build();
     }
 }
