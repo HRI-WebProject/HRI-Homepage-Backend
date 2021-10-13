@@ -28,7 +28,7 @@ class MemberServiceTest {
     @Test
     public void getMember() throws Exception {
         //when
-        List<Member> members = memberService.getMember();
+        List<Member> members = memberService.getMembers();
         //then
         then(memberRepository).should(times(1)).findAll();
     }

@@ -20,7 +20,7 @@ public class MemberController {
     @ResponseBody
     @GetMapping("/members")
     public SuccessResponse getMember(){
-        List<Member> members = memberService.getMember();
+        List<Member> members = memberService.getMembers();
         return SuccessResponse.builder()
             .status(StatusEnum.OK)
             .message("모든 구성원 조회 성공")
