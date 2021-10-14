@@ -33,13 +33,13 @@ public class Member {
 
     private DegreeEnum degree;
 
-    private boolean graduate;
+    private Boolean graduate;
 
     protected Member() {
     }
 
     @Builder
-    public Member(String name, String engName, String email, String photo, DegreeEnum degree, boolean graduate) {
+    public Member(String name, String engName, String email, String photo, DegreeEnum degree, Boolean graduate) {
         this.name = name;
         this.engName = engName;
         this.email = email;
