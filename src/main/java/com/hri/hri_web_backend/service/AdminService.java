@@ -21,13 +21,21 @@ public class AdminService {
         return administrator.getId();
     }
 
-    public Administrator findAdminByUsernameAndPassword(String username, String password){
-        Optional<Administrator> admin = adminRepository.findByUsernameAndPassword(username, password);
-        return admin.orElse(null);
+    public Administrator findAdminByUsernameAndPassword(Administrator administrator){
+        Optional<Administrator> admin = adminRepository.findByUsernameAndPassword(administrator.getUsername(), administrator.getPassword());
+        if(admin.isEmpty()){
+            throw new NullPointerException();
+        }else{
+            return admin.get();
+        }
     }
 
     public Administrator findAdminById(Long id){
         Optional<Administrator> admin = adminRepository.findById(id);
-        return admin.orElse(null);
+        if(admin.isEmpty()){
+            throw new NullPointerException();
+        }else{
+            return admin.get();
+        }
     }
 }

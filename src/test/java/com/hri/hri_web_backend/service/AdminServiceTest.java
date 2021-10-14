@@ -25,7 +25,7 @@ class AdminServiceTest {
         Long savedId = adminService.join(administrator);
         //when
         Administrator adminById = adminService.findAdminById(savedId);
-        Administrator adminByUP = adminService.findAdminByUsernameAndPassword(administrator.getUsername(), administrator.getPassword());
+        Administrator adminByUP = adminService.findAdminByUsernameAndPassword(administrator);
         //then
         Assertions.assertThat(adminById).isEqualTo(administrator);
         Assertions.assertThat(adminByUP).isEqualTo(administrator);
