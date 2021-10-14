@@ -19,7 +19,7 @@ public class MemberController {
 
     @ResponseBody
     @GetMapping("/members")
-    public SuccessResponse getMember(){
+    public SuccessResponse getMembers(){
         List<Member> members = memberService.getMembers();
         return SuccessResponse.builder()
             .status(StatusEnum.OK)
