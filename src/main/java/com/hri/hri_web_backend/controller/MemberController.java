@@ -1,5 +1,11 @@
 package com.hri.hri_web_backend.controller;
 
+import java.util.List;
+
+import javax.validation.Valid;
+
+import com.hri.hri_web_backend.global.StatusEnum;
+import com.hri.hri_web_backend.global.SuccessResponse;
 import com.hri.hri_web_backend.domain.Member;
 import com.hri.hri_web_backend.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -12,16 +18,23 @@ public class MemberController {
     private final MemberService memberService;
 
     @ResponseBody
-    @PostMapping(value = "/members/new")
-    public String create(@RequestBody Member member){
-        memberService.join(member);
-        System.out.println("member id = " + member.getId() +" member name = "+ member.getName());
-        return "join success";
+    @GetMapping("/members")
+    public SuccessResponse getMembers(){
+        List<Member> members = memberService.getMembers();
+        return SuccessResponse.builder()
+            .status(StatusEnum.OK)
+            .message("모든 구성원 조회 성공")
+            .data(members)
+            .build();
     }
 
     @ResponseBody
-    @RequestMapping("/index")
-    public String home() {
-        return "home";
+    @PostMapping("/members")
+    public SuccessResponse registerMember(@Valid @RequestBody Member member){
+        memberService.registerMember(member);
+        return SuccessResponse.builder()
+            .status(StatusEnum.OK)
+            .message("구성원 등록 성공")
+            .build();
     }
 }

@@ -1,30 +1,46 @@
 package com.hri.hri_web_backend.service;
 
 import com.hri.hri_web_backend.domain.Member;
+import com.hri.hri_web_backend.fixture.MemberFixture.Member1;
 import com.hri.hri_web_backend.repository.MemberRepository;
+
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import static org.mockito.BDDMockito.*;
+import static org.mockito.Mockito.times;
 
-import javax.transaction.Transactional;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-@SpringBootTest
-@Transactional
+@ExtendWith(MockitoExtension.class)
 class MemberServiceTest {
-    @Autowired MemberService memberService;
-    @Autowired MemberRepository memberRepository;
 
+    @InjectMocks
+    MemberService memberService;
+
+    @Mock
+    MemberRepository memberRepository;
+
+    @DisplayName("모든 구성원을 가져온다")
     @Test
-    public void join() throws Exception {
-        //given
-        Member member = new Member();
-        member.setName("test");
+    public void getMember() throws Exception {
         //when
-        Long savedId = memberService.join(member);
+        List<Member> members = memberService.getMembers();
         //then
-        assertEquals(member,memberService.findOne(savedId));
+        then(memberRepository).should(times(1)).findAll();
     }
 
+    @DisplayName("구성원을 등록한다")
+    @Test
+    public void registerMember() throws Exception {
+        //given
+        final Member member = Member1.MEMBER;
+        //when
+        memberService.registerMember(member);
+        //then
+        then(memberRepository).should(times(1)).save(member);
+    }
 }
