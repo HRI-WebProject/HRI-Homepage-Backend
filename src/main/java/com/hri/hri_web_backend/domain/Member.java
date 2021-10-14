@@ -2,6 +2,7 @@ package com.hri.hri_web_backend.domain;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +14,7 @@ import com.hri.hri_web_backend.global.DegreeEnum;
 
 @Entity
 @Getter
+@Setter
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,13 +33,13 @@ public class Member {
 
     private DegreeEnum degree;
 
-    private boolean graduate;
+    private Boolean graduate;
 
     protected Member() {
     }
 
     @Builder
-    public Member(String name, String engName, String email, String photo, DegreeEnum degree, boolean graduate) {
+    public Member(String name, String engName, String email, String photo, DegreeEnum degree, Boolean graduate) {
         this.name = name;
         this.engName = engName;
         this.email = email;
