@@ -10,13 +10,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.hri.hri_web_backend.global.DegreeEnum;
+
 @Entity
 @Getter
 @Setter
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_id", nullable = false)
+    @Column(name = "member_id")
     private Long id;
 
     @Column(nullable = false)
@@ -29,15 +31,15 @@ public class Member {
 
     private String photo;
 
-    private String degree;
+    private DegreeEnum degree;
 
-    private String graduate;
+    private boolean graduate;
 
     protected Member() {
     }
 
     @Builder
-    public Member(String name, String engName, String email, String photo, String degree, String graduate) {
+    public Member(String name, String engName, String email, String photo, DegreeEnum degree, boolean graduate) {
         this.name = name;
         this.engName = engName;
         this.email = email;

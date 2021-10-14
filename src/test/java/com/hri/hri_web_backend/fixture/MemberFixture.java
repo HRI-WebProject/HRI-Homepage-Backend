@@ -1,6 +1,7 @@
 package com.hri.hri_web_backend.fixture;
 
 import com.hri.hri_web_backend.domain.Member;
+import com.hri.hri_web_backend.global.DegreeEnum;
 
 public class MemberFixture {
 
@@ -10,8 +11,8 @@ public class MemberFixture {
 		public static final String ENG_NAME = "member1_eng";
 		public static final String EMAIL = "member1@test.com";
 		public static final String PHOTO = "./member1/photo/path";
-		public static final String DEGREE = "석사";
-		public static final String GRADUATE = "a대학교";
+		public static final DegreeEnum DEGREE = DegreeEnum.MASTER;
+		public static final boolean GRADUATE = false;
 
 		public static final Member MEMBER = Member.builder()
 			.name(NAME)
@@ -29,8 +30,8 @@ public class MemberFixture {
 		public static final String ENG_NAME = "member2_eng";
 		public static final String EMAIL = "member2@test.com";
 		public static final String PHOTO = "./member2/photo/path";
-		public static final String DEGREE = "박사";
-		public static final String GRADUATE = "a대학교";
+		public static final DegreeEnum DEGREE = DegreeEnum.BACHELOR;
+		public static final boolean GRADUATE = false;
 
 		public static final Member MEMBER = Member.builder()
 			.name(NAME)

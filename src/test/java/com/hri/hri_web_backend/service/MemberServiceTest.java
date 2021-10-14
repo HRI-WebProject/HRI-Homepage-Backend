@@ -25,16 +25,16 @@ class MemberServiceTest {
     @Mock
     MemberRepository memberRepository;
 
-    @DisplayName("모든 구성원 및 졸업생을 가져온다")
+    @DisplayName("모든 구성원을 가져온다")
     @Test
-    public void getMember() throws Exception {
+    public void getMembers() throws Exception {
         //when
-        List<Member> members = memberService.getMember();
+        List<Member> members = memberService.getMembers();
         //then
         then(memberRepository).should(times(1)).findAll();
     }
 
-    @DisplayName("구성원 및 졸업생을 등록한다")
+    @DisplayName("구성원 및 졸업생을을 등록한다")
     @Test
     public void registerMember() throws Exception {
         //given

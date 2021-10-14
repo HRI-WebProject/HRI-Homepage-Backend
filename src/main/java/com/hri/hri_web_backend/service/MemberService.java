@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -17,7 +18,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    public List<Member> getMember(){
+    public List<Member> getMembers(){
         return memberRepository.findAll();
     }
 

@@ -19,11 +19,11 @@ public class MemberController {
 
     @ResponseBody
     @GetMapping("/members")
-    public SuccessResponse getMember(){
-        List<Member> members = memberService.getMember();
+    public SuccessResponse getMembers(){
+        List<Member> members = memberService.getMembers();
         return SuccessResponse.builder()
             .status(StatusEnum.OK)
-            .message("모든 구성원 및 졸업생 조회 성공")
+            .message("모든 구성원 조회 성공")
             .data(members)
             .build();
     }
