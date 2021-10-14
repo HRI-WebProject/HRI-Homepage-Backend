@@ -9,9 +9,11 @@ import javax.persistence.Id;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Getter
+@Setter
 public class Publication {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,8 +31,7 @@ public class Publication {
 	}
 
 	@Builder
-	public Publication(Long id, String topic, String link, String detail, PublicationType publication_type){
-		this.id = id;
+	public Publication(String topic, String link, String detail, PublicationType publication_type){
 		this.topic = topic;
 		this.link = link;
 		this.detail = detail;

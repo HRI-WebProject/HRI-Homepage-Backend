@@ -25,23 +25,23 @@ public class PublicationController {
 	private final PublicationService ps;
 
 	//ResponseBody
-	//생성
-	@ResponseBody
-	@PostMapping(value = "/publications/new")
-	public String create(@Valid @RequestBody PublicationDto publicationDto){ //SuccessResponse
-		ps.savePublication(publicationDto);
-		return "redirect:/publications";
-	}
-
 	//조회
 	@ResponseBody
-	@GetMapping(value = "/publications/{type}") //분리?
+	@GetMapping(value = "/publications/{type}")
 	public SuccessResponse getPublicationByType(@PathVariable PublicationType type){
 		return SuccessResponse.builder()
 			.status(StatusEnum.OK)
 			.message("Publication 생성 성공")
 			.data(ps.findPublicationsByType(type))
 			.build();
+	}
+
+	//생성
+	@ResponseBody
+	@PostMapping(value = "/publications/new")
+	public String create(@Valid @RequestBody PublicationDto publicationDto){ //SuccessResponse
+		ps.savePublication(publicationDto);
+		return "redirect:/publications"; //미정
 	}
 
 	//수정

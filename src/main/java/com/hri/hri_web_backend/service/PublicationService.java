@@ -27,7 +27,6 @@ public class PublicationService {
 	@Transactional
 	public void savePublication(@Valid PublicationDto publicationDto){
 		Publication publication = Publication.builder()
-			.id(publicationDto.getId())
 			.link(publicationDto.getLink())
 			.publication_type(publicationDto.getPublication_type())
 			.topic(publicationDto.getTopic())
@@ -42,18 +41,22 @@ public class PublicationService {
 	}
 
 	//수정
+	@Transactional
 	public void updatePublication(PublicationDto publicationDto, Long id) {
-		Publication publication = Publication.builder()
-			.id(publicationDto.getId())
-			.link(publicationDto.getLink())
-			.publication_type(publicationDto.getPublication_type())
-			.topic(publicationDto.getTopic())
-			.detail(publicationDto.getDetail())
-			.build();
-		pr.save(publication);
+		Optional<Publication> publication = pr.findById(id);
+		if(publication.isEmpty()){
+			throw new NullPointerException();
+		}else{
+			Publication publication1 = publication.get();
+			publication1.setPublication_type(publicationDto.getPublication_type());
+			publication1.setDetail(publicationDto.getDetail());
+			publication1.setLink(publicationDto.getLink());
+			publication1.setTopic(publicationDto.getTopic());
+		}
 	}
 
 	//삭제
+	@Transactional
 	public void deletePublication(Long id){
 		pr.deleteById(id); //EmptyResultDataAccessException 발생 가능
 	}
