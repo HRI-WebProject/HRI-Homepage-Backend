@@ -13,5 +13,5 @@ import com.hri.hri_web_backend.domain.PublicationType;
 
 @Repository
 public interface PublicationRepository extends JpaRepository<Publication, Long> {
-	List<Publication> findByType(Enum<PublicationType> type);
+	List<Publication> findByPublicationType(Enum<PublicationType> type);
 }

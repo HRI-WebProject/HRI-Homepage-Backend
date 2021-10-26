@@ -19,22 +19,22 @@ public class Publication {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pubilcation_id")
 	private Long id;
-
+	@Column(nullable = false)
 	String topic;
 	String link;
 	String detail;
 
 	@Enumerated
-	private PublicationType publication_type;
+	private PublicationType publicationType;
 
 	protected Publication(){
 	}
 
 	@Builder
-	public Publication(String topic, String link, String detail, PublicationType publication_type){
+	public Publication(String topic, String link, String detail, PublicationType publicationType){
 		this.topic = topic;
 		this.link = link;
 		this.detail = detail;
-		this.publication_type = publication_type;
+		this.publicationType = publicationType;
 	}
 }

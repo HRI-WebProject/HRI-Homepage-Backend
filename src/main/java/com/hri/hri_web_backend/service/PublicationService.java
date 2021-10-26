@@ -28,7 +28,7 @@ public class PublicationService {
 	public void savePublication(@Valid PublicationDto publicationDto){
 		Publication publication = Publication.builder()
 			.link(publicationDto.getLink())
-			.publication_type(publicationDto.getPublication_type())
+			.publicationType(publicationDto.getPublication_type())
 			.topic(publicationDto.getTopic())
 			.detail(publicationDto.getDetail())
 			.build();
@@ -37,7 +37,7 @@ public class PublicationService {
 
 	//조회
 	public List<Publication> findPublicationsByType(PublicationType type){
-		return pr.findByType(type);
+		return pr.findByPublicationType(type);
 	}
 
 	//수정
@@ -48,7 +48,7 @@ public class PublicationService {
 			throw new NullPointerException();
 		}else{
 			Publication publication1 = publication.get();
-			publication1.setPublication_type(publicationDto.getPublication_type());
+			publication1.setPublicationType(publicationDto.getPublication_type());
 			publication1.setDetail(publicationDto.getDetail());
 			publication1.setLink(publicationDto.getLink());
 			publication1.setTopic(publicationDto.getTopic());
