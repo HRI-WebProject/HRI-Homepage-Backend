@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PublicationService {
 
-	private final PublicationRepository pr;
+	private final PublicationRepository publicationRepository;
 
 	//생성
 	@Transactional
@@ -32,32 +32,32 @@ public class PublicationService {
 			.topic(publicationDto.getTopic())
 			.detail(publicationDto.getDetail())
 			.build();
-		Publication saved = pr.save(publication);
+		Publication saved = publicationRepository.save(publication);
 	}
 
 	//조회
 	public List<Publication> findPublicationsByType(PublicationType type){
-		return pr.findByPublicationType(type);
+		return publicationRepository.findByPublicationType(type);
 	}
 
 	//수정
 	@Transactional
 	public void updatePublication(PublicationDto publicationDto, Long id) {
-		Optional<Publication> publication = pr.findById(id);
-		if(publication.isEmpty()){
+		Optional<Publication> publication = publicationRepository.findById(id);
+		if(publication.isEmpty()) {
 			throw new NullPointerException();
-		}else{
-			Publication publication1 = publication.get();
-			publication1.setPublicationType(publicationDto.getPublication_type());
-			publication1.setDetail(publicationDto.getDetail());
-			publication1.setLink(publicationDto.getLink());
-			publication1.setTopic(publicationDto.getTopic());
 		}
+		Publication publication1 = publication.get();
+		publication1.setPublicationType(publicationDto.getPublication_type());
+		publication1.setDetail(publicationDto.getDetail());
+		publication1.setLink(publicationDto.getLink());
+		publication1.setTopic(publicationDto.getTopic());
+
 	}
 
 	//삭제
 	@Transactional
 	public void deletePublication(Long id){
-		pr.deleteById(id); //EmptyResultDataAccessException 발생 가능
+		publicationRepository.deleteById(id); //EmptyResultDataAccessException 발생 가능
 	}
 }

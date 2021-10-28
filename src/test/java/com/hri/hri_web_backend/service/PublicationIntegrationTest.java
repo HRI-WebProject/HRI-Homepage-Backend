@@ -16,7 +16,7 @@ import com.hri.hri_web_backend.dto.PublicationDto;
 
 @SpringBootTest
 @Transactional
-class PublicationServiceTest {
+class PublicationIntegrationTest {
 	@Autowired PublicationService ps;
 
 	@PostConstruct
