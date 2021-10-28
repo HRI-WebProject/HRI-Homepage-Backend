@@ -50,6 +50,7 @@ public class MemberController {
             .build();
     }
 
+    @ResponseBody
     @DeleteMapping("/{id}/delete")
     public SuccessResponse deleteMember(@PathVariable Long id){
         memberService.deleteMember(id);
