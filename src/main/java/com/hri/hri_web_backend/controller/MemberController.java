@@ -29,7 +29,7 @@ public class MemberController {
     }
 
     @ResponseBody
-    @PostMapping("/members")
+    @PostMapping("/admin/members")
     public SuccessResponse registerMember(@Valid @RequestBody Member member){
         memberService.registerMember(member);
         return SuccessResponse.builder()
@@ -39,7 +39,7 @@ public class MemberController {
     }
 
     @ResponseBody
-    @PutMapping("/members/{id}")
+    @PutMapping("/admin/members/{id}")
     public SuccessResponse updateMember(@Valid @RequestBody Member member, @PathVariable long id){
         memberService.changeMemberInfo(member, id);
         return SuccessResponse.builder()

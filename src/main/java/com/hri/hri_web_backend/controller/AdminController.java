@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.hri.hri_web_backend.domain.Administrator;
 import com.hri.hri_web_backend.global.StatusEnum;
 import com.hri.hri_web_backend.global.SuccessResponse;
-import com.hri.hri_web_backend.service.AdminService;
 import com.hri.hri_web_backend.service.security.AuthService;
-import com.hri.hri_web_backend.service.security.impl.AuthServiceImpl;
 import com.hri.hri_web_backend.service.security.util.CookieUtil;
 import com.hri.hri_web_backend.service.security.util.JwtUtil;
 import com.hri.hri_web_backend.service.security.util.RedisUtil;
@@ -26,13 +24,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @Slf4j
 public class AdminController {
-    private final AdminService adminService;
+    // private final AdminService adminService;
     private final AuthService authService;
     private final JwtUtil jwtUtil;
     private final CookieUtil cookieUtil;
     private final RedisUtil redisUtil;
 
-    @PostMapping("/signup")
+    @PostMapping("/admin/signup")
     public SuccessResponse signUpUser(@RequestBody Administrator administrator) {
         try {
             authService.signUpAdministrator(administrator);

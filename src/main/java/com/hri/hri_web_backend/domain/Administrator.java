@@ -28,7 +28,7 @@ public class Administrator { //관리자
     private Salt salt;
 
 
-    protected Administrator() {
+    public Administrator() {
     }
 
     public Administrator(String username, String password){
