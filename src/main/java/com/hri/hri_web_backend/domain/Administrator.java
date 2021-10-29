@@ -1,11 +1,13 @@
 package com.hri.hri_web_backend.domain;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
+@Setter
 public class Administrator { //관리자
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +17,16 @@ public class Administrator { //관리자
     private String username;
     @Column(nullable = false)
     private String password;
+
+    @Column(name = "role")
+    @Enumerated(EnumType.STRING)
+    private UserRole role = UserRole.ROLE_ADMIN;
+
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "salt_id")
+    private Salt salt;
+
 
     protected Administrator() {
     }
