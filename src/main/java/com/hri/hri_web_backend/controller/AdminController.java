@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hri.hri_web_backend.domain.Administrator;
+import com.hri.hri_web_backend.domain.Salt;
 import com.hri.hri_web_backend.global.StatusEnum;
 import com.hri.hri_web_backend.global.SuccessResponse;
 import com.hri.hri_web_backend.service.security.AuthService;
@@ -30,6 +31,12 @@ public class AdminController {
     private final CookieUtil cookieUtil;
     private final RedisUtil redisUtil;
 
+    @PostConstruct //배포시 삭제 , 테스트 코드 때문에 잠시 주석처리
+    public void init() {
+        Administrator administrator = new Administrator("root","pass");
+        signUpUser(administrator);
+    }
+
     @PostMapping("/admin/signup")
     public SuccessResponse signUpUser(@RequestBody Administrator administrator) {
         try {
@@ -46,6 +53,7 @@ public class AdminController {
     @PostMapping("/login")
     public SuccessResponse login(@RequestBody Administrator administrator, HttpServletRequest request, HttpServletResponse response) throws Exception {
         try {
+            //spring security - AuthService:loginAdministrator -> admin 객체 생성
             final Administrator admin = authService.loginAdministrator(administrator.getUsername(), administrator.getPassword());
             //Access, refresh 토큰 생성하여 쿠키 만듬
             final String token = jwtUtil.generateToken(admin);

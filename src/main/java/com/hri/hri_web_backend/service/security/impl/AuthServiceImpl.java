@@ -20,16 +20,6 @@ public class AuthServiceImpl implements AuthService {
 	private final AdminRepository adminRepository;
 	private final SaltUtil saltUtil;
 
-	@PostConstruct //배포시 삭제 , 테스트 코드 때문에 잠시 주석처리
-	public void init() {
-		Administrator administrator = new Administrator("root","pass");
-		String password = administrator.getPassword();
-		String salt = saltUtil.genSalt();
-		administrator.setSalt(new Salt(salt));
-		administrator.setPassword(saltUtil.encodePassword(salt,password));
-		adminRepository.save(administrator);
-	}
-
 	@Override
 	public void signUpAdministrator(Administrator administrator) {
 		String password = administrator.getPassword();
