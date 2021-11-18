@@ -1,6 +1,8 @@
 package com.hri.hri_web_backend.service;
 
 import com.hri.hri_web_backend.domain.Member;
+import com.hri.hri_web_backend.domain.MemberDto;
+import com.hri.hri_web_backend.fixture.MemberFixture.Member2;
 import com.hri.hri_web_backend.fixture.MemberFixture.Member1;
 import com.hri.hri_web_backend.repository.MemberRepository;
 
@@ -38,24 +40,40 @@ class MemberServiceTest {
     @Test
     public void registerMember() throws Exception {
         //given
-        final Member member = Member1.MEMBER;
+        final Member member= Member1.MEMBER;
+        final MemberDto memberDto = MemberDto.builder()
+            .name(member.getName())
+            .email(member.getEmail())
+            .engName(member.getEngName())
+            .email(member.getEmail())
+            .photo(member.getPhoto())
+            .degree(member.getDegree())
+            .graduate(member.getGraduate())
+            .build();
         //when
-        memberService.registerMember(member);
+        memberService.registerMember(memberDto);
         //then
-        then(memberRepository).should(times(1)).save(member);
+        then(memberRepository).should(times(1)).save(any());
     }
 
     @DisplayName("구성원 및 졸업생을 수정한다")
     @Test
     public void updateMember() throws Exception {
         //given
-        final Member member = Member1.MEMBER;
+        final MemberDto memberDto = MemberDto.builder()
+            .email(Member2.NAME)
+            .engName(Member2.ENG_NAME)
+            .email(Member2.EMAIL)
+            .photo(Member2.PHOTO)
+            .degree(Member2.DEGREE)
+            .graduate(Member2.GRADUATE)
+            .build();
 
         final Optional<Member> updateMember = Optional.of(Member1.MEMBER);
         given(memberRepository.findById(any())).willReturn(updateMember);
 
         //when
-        memberService.changeMemberInfo(member, Member1.ID);
+        memberService.changeMemberInfo(memberDto, Member1.ID);
 
         //then
         then(memberRepository).should(times(1)).save(any());
