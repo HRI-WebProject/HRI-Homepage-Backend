@@ -5,8 +5,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.hri.hri_web_backend.controller.dto.RegisterProjectDto;
-import com.hri.hri_web_backend.controller.dto.UpdateRequestDto;
+import com.hri.hri_web_backend.dto.RegisterProjectDto;
+import com.hri.hri_web_backend.dto.UpdateRequestDto;
 import com.hri.hri_web_backend.domain.Project;
 import com.hri.hri_web_backend.repository.ProjectRepository;
 
@@ -38,8 +38,6 @@ public class ProjectService {
 		updateProject.ifPresent(selectProject->{
 			selectProject.setTopic(dto.getTopic());
 			selectProject.setDetail(dto.getDetail());
-
-			projectRepository.save(selectProject);
 		});
 	}
 

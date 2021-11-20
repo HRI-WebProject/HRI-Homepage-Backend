@@ -38,8 +38,6 @@ public class MemberService {
             selectMember.setPhoto(member.getPhoto());
             selectMember.setDegree(member.getDegree());
             selectMember.setGraduate(member.getGraduate());
-
-            memberRepository.save(selectMember);
         });
     }
 }

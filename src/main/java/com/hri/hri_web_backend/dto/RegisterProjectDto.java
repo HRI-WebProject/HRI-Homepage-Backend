@@ -1,4 +1,4 @@
-package com.hri.hri_web_backend.controller.dto;
+package com.hri.hri_web_backend.dto;
 
 import lombok.Builder;
 import lombok.Getter;
