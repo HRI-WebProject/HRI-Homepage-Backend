@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.hri.hri_web_backend.domain.Project;
 import com.hri.hri_web_backend.global.StatusEnum;
 import com.hri.hri_web_backend.global.SuccessResponse;
 import com.hri.hri_web_backend.domain.Member;
@@ -49,17 +48,6 @@ public class MemberController {
         return SuccessResponse.builder()
             .status(StatusEnum.OK)
             .message("구성원 및 졸업생 수정 성공")
-            .build();
-    }
-
-    @ResponseBody
-    @GetMapping("/projects")
-    public SuccessResponse getProjects(){
-        List<Project> projects = projectService.getProjects();
-        return SuccessResponse.builder()
-            .status(StatusEnum.OK)
-            .data(projects)
-            .message("프로젝트 조회 성공")
             .build();
     }
 }
