@@ -37,7 +37,7 @@ public class AdminController {
         signUpUser(administrator);
     }
 
-    @PostMapping("/admin/signup")
+    @PostMapping("/admin/sign-up")
     public SuccessResponse signUpUser(@RequestBody Administrator administrator) {
         try {
             authService.signUpAdministrator(administrator);
