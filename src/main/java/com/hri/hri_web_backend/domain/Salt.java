@@ -18,7 +18,7 @@ public class Salt {
 	@GeneratedValue
 	private int id;
 
-	@NotNull()
+	@NotNull
 	private String salt;
 
 	public Salt() {
