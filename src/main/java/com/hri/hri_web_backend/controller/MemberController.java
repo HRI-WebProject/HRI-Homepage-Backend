@@ -51,7 +51,7 @@ public class MemberController {
     }
 
     @ResponseBody
-    @DeleteMapping("/members/{id}/delete")
+    @DeleteMapping("/admin/members/{id}")
     public SuccessResponse deleteMember(@PathVariable Long id){
         memberService.deleteMember(id);
         return SuccessResponse.builder()
