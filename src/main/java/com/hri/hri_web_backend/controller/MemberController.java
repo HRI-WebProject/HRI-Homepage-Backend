@@ -14,13 +14,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/members")
 @RequiredArgsConstructor
 public class MemberController {
     private final MemberService memberService;
 
     @ResponseBody
-    @GetMapping("")
+    @GetMapping("/members")
     public SuccessResponse getMembers(){
         List<Member> members = memberService.getMembers();
         return SuccessResponse.builder()
@@ -31,9 +30,10 @@ public class MemberController {
     }
 
     @ResponseBody
-    @PostMapping("")
+    @PostMapping("/admin/members")
     public SuccessResponse registerMember(@Valid @RequestBody MemberDto memberDto){
         memberService.registerMember(memberDto);
+
         return SuccessResponse.builder()
             .status(StatusEnum.OK)
             .message("구성원 및 졸업생 등록 성공")
@@ -41,7 +41,7 @@ public class MemberController {
     }
 
     @ResponseBody
-    @PutMapping("/{id}")
+    @PutMapping("/admin/members/{id}")
     public SuccessResponse updateMember(@Valid @RequestBody MemberDto memberDto, @PathVariable long id){
         memberService.changeMemberInfo(memberDto, id);
         return SuccessResponse.builder()
@@ -51,7 +51,7 @@ public class MemberController {
     }
 
     @ResponseBody
-    @DeleteMapping("/{id}/delete")
+    @DeleteMapping("/admin/members/{id}")
     public SuccessResponse deleteMember(@PathVariable Long id){
         memberService.deleteMember(id);
         return SuccessResponse.builder()

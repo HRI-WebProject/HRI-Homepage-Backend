@@ -15,6 +15,10 @@ public class MemberDto {
 	private DegreeEnum degree;
 	private Boolean graduate;
 
+	protected MemberDto (){
+
+	}
+
 	@Builder
 	public MemberDto(String name, String engName, String email, String photo, DegreeEnum degree, Boolean graduate) {
 		this.name = name;
