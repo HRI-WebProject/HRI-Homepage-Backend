@@ -26,8 +26,7 @@ public class Project {
 	}
 
 	@Builder
-	public Project(Long id, String topic, String detail){
-		this.id = id;
+	public Project(String topic, String detail){
 		this.topic = topic;
 		this.detail = detail;
 	}
