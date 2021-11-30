@@ -9,6 +9,8 @@ import com.hri.hri_web_backend.global.StatusEnum;
 import com.hri.hri_web_backend.global.SuccessResponse;
 import com.hri.hri_web_backend.domain.Member;
 import com.hri.hri_web_backend.service.MemberService;
+import com.hri.hri_web_backend.service.ProjectService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class MemberController {
     private final MemberService memberService;
+    private final ProjectService projectService;
 
     @ResponseBody
     @GetMapping("/members")
