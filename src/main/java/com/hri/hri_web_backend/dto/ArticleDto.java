@@ -10,8 +10,6 @@ import lombok.Setter;
 @Setter
 public class ArticleDto {
 	Long id;
-	//글 번호(1부터 순차적)
-	Long articleNum;
 	String topic;
 	LocalDateTime createDate;
 	String author;

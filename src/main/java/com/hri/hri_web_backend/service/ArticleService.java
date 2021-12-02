@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.hri.hri_web_backend.domain.Article;
@@ -17,13 +18,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ArticleService {
 	private final ArticleRepository articleRepository;
+	private int pageSize = 5;
 
 	public void registerArticle(Article article){
 		articleRepository.save(article);
 	}
 
-	public Page<ArticleDto> getArticlesByType(BoardType boardType, Integer page){
-		PageRequest pageRequest = PageRequest.of(page, 5);
+	public Page<ArticleDto> getArticlesByType(BoardType boardType, Integer pageNum){
+		PageRequest pageRequest = PageRequest.of(pageNum, pageSize, Sort.by(Sort.Direction.DESC,"id"));
 		Page<Article> articles = articleRepository.findAllByBoardType(boardType, pageRequest);
 		return articles.map(
 			article -> new ArticleDto(article.getId(), article.getTopic(), article.getAuthor(),
