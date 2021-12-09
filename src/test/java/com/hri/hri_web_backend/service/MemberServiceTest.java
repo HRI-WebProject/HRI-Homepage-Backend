@@ -1,6 +1,8 @@
 package com.hri.hri_web_backend.service;
 
 import com.hri.hri_web_backend.domain.Member;
+import com.hri.hri_web_backend.domain.MemberDto;
+import com.hri.hri_web_backend.fixture.MemberFixture.Member2;
 import com.hri.hri_web_backend.fixture.MemberFixture.Member1;
 import com.hri.hri_web_backend.repository.MemberRepository;
 
@@ -10,6 +12,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.assertj.core.api.Assertions.*;
 import static org.mockito.BDDMockito.*;
 import static org.mockito.Mockito.times;
 
@@ -38,26 +42,29 @@ class MemberServiceTest {
     @Test
     public void registerMember() throws Exception {
         //given
-        final Member member = Member1.MEMBER;
+        final Member member= Member1.MEMBER;
+        final MemberDto memberDto = MemberDto.builder()
+            .name(member.getName())
+            .email(member.getEmail())
+            .engName(member.getEngName())
+            .email(member.getEmail())
+            .photo(member.getPhoto())
+            .degree(member.getDegree())
+            .graduate(member.getGraduate())
+            .build();
         //when
-        memberService.registerMember(member);
-        //then
-        then(memberRepository).should(times(1)).save(member);
-    }
-
-    @DisplayName("구성원 및 졸업생을 수정한다")
-    @Test
-    public void updateMember() throws Exception {
-        //given
-        final Member member = Member1.MEMBER;
-
-        final Optional<Member> updateMember = Optional.of(Member1.MEMBER);
-        given(memberRepository.findById(any())).willReturn(updateMember);
-
-        //when
-        memberService.changeMemberInfo(member, Member1.ID);
-
+        memberService.registerMember(memberDto);
         //then
         then(memberRepository).should(times(1)).save(any());
+    }
+
+    @DisplayName("구성원 및 졸업생을 삭제한다")
+    @Test
+    public void deleteMember() throws Exception {
+        //when
+        memberService.deleteMember(Member1.ID);
+
+        //then
+        then(memberRepository).should(times(1)).deleteById(any());
     }
 }
