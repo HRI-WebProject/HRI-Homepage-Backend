@@ -1,8 +1,7 @@
 package com.hri.hri_web_backend.service;
 
 import com.hri.hri_web_backend.domain.Member;
-import com.hri.hri_web_backend.domain.MemberDto;
-import com.hri.hri_web_backend.fixture.MemberFixture.Member2;
+import com.hri.hri_web_backend.dto.MemberDto;
 import com.hri.hri_web_backend.fixture.MemberFixture.Member1;
 import com.hri.hri_web_backend.repository.MemberRepository;
 
@@ -12,11 +11,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
 import static org.mockito.BDDMockito.*;
 import static org.mockito.Mockito.times;
 
 import java.util.List;
-import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
 class MemberServiceTest {
@@ -56,26 +55,13 @@ class MemberServiceTest {
         then(memberRepository).should(times(1)).save(any());
     }
 
-    @DisplayName("구성원 및 졸업생을 수정한다")
+    @DisplayName("구성원 및 졸업생을 삭제한다")
     @Test
-    public void updateMember() throws Exception {
-        //given
-        final MemberDto memberDto = MemberDto.builder()
-            .email(Member2.NAME)
-            .engName(Member2.ENG_NAME)
-            .email(Member2.EMAIL)
-            .photo(Member2.PHOTO)
-            .degree(Member2.DEGREE)
-            .graduate(Member2.GRADUATE)
-            .build();
-
-        final Optional<Member> updateMember = Optional.of(Member1.MEMBER);
-        given(memberRepository.findById(any())).willReturn(updateMember);
-
+    public void deleteMember() throws Exception {
         //when
-        memberService.changeMemberInfo(memberDto, Member1.ID);
+        memberService.deleteMember(Member1.ID);
 
         //then
-        then(memberRepository).should(times(1)).save(any());
+        then(memberRepository).should(times(1)).deleteById(any());
     }
 }

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.hri.hri_web_backend.domain.Member;
-import com.hri.hri_web_backend.domain.MemberDto;
+import com.hri.hri_web_backend.dto.MemberDto;
 import com.hri.hri_web_backend.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 
@@ -47,8 +47,6 @@ public class MemberService {
             selectMember.setPhoto(memberDto.getPhoto());
             selectMember.setDegree(memberDto.getDegree());
             selectMember.setGraduate(memberDto.getGraduate());
-
-            memberRepository.save(selectMember);
         });
     }
 
