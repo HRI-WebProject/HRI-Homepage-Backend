@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.hri.hri_web_backend.domain.Member;
+import com.hri.hri_web_backend.domain.MemberDto;
 import com.hri.hri_web_backend.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 
@@ -22,22 +23,34 @@ public class MemberService {
         return memberRepository.findAll();
     }
 
-    public void registerMember(Member member){
+    public void registerMember(MemberDto memberDto){
+        Member member = Member.builder()
+            .name(memberDto.getName())
+            .engName(memberDto.getEngName())
+            .email(memberDto.getEmail())
+            .photo(memberDto.getPhoto())
+            .degree(memberDto.getDegree())
+            .graduate(memberDto.getGraduate())
+            .build();
         memberRepository.save(member);
     }
 
-    public void changeMemberInfo(Member member, long id){
+    public void changeMemberInfo(MemberDto memberDto, long id){
         Optional<Member> updateMember = memberRepository.findById(id);
         if(updateMember.isEmpty())
             throw new NullPointerException();
 
         updateMember.ifPresent(selectMember->{
-            selectMember.setName(member.getName());
-            selectMember.setEngName(member.getEngName());
-            selectMember.setEmail(member.getEmail());
-            selectMember.setPhoto(member.getPhoto());
-            selectMember.setDegree(member.getDegree());
-            selectMember.setGraduate(member.getGraduate());
+            selectMember.setName(memberDto.getName());
+            selectMember.setEngName(memberDto.getEngName());
+            selectMember.setEmail(memberDto.getEmail());
+            selectMember.setPhoto(memberDto.getPhoto());
+            selectMember.setDegree(memberDto.getDegree());
+            selectMember.setGraduate(memberDto.getGraduate());
         });
+    }
+
+    public void deleteMember(Long id){
+        memberRepository.deleteById(id);
     }
 }
