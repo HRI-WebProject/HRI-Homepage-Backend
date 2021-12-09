@@ -38,7 +38,6 @@ public class ProjectController {
 			.message("프로젝트 조회 성공")
 			.build();
 	}
-
 	@ResponseBody
 	@PostMapping("/admin/projects")
 	public SuccessResponse registerProject(@Valid @RequestBody RegisterProjectDto dto){
