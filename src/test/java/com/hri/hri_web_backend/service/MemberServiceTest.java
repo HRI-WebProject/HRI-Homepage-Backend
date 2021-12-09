@@ -1,7 +1,7 @@
 package com.hri.hri_web_backend.service;
 
 import com.hri.hri_web_backend.domain.Member;
-import com.hri.hri_web_backend.dto.MemberDto;
+import com.hri.hri_web_backend.domain.MemberDto;
 import com.hri.hri_web_backend.fixture.MemberFixture.Member1;
 import com.hri.hri_web_backend.repository.MemberRepository;
 

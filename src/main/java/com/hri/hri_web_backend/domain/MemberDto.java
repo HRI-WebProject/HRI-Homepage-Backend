@@ -1,4 +1,4 @@
-package com.hri.hri_web_backend.dto;
+package com.hri.hri_web_backend.domain;
 
 import com.hri.hri_web_backend.global.DegreeEnum;
 

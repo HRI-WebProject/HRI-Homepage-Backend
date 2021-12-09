@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.hri.hri_web_backend.dto.MemberDto;
+import com.hri.hri_web_backend.domain.MemberDto;
 import com.hri.hri_web_backend.global.StatusEnum;
 import com.hri.hri_web_backend.global.SuccessResponse;
 import com.hri.hri_web_backend.domain.Member;
