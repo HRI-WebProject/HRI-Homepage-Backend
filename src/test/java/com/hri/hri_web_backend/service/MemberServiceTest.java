@@ -1,8 +1,7 @@
 package com.hri.hri_web_backend.service;
 
 import com.hri.hri_web_backend.domain.Member;
-import com.hri.hri_web_backend.domain.MemberDto;
-import com.hri.hri_web_backend.fixture.MemberFixture.Member2;
+import com.hri.hri_web_backend.dto.MemberDto;
 import com.hri.hri_web_backend.fixture.MemberFixture.Member1;
 import com.hri.hri_web_backend.repository.MemberRepository;
 
@@ -13,12 +12,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.mockito.BDDMockito.*;
 import static org.mockito.Mockito.times;
 
 import java.util.List;
-import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
 class MemberServiceTest {
