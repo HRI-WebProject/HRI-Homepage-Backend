@@ -1,29 +1,13 @@
-package com.hri.hri_web_backend.domain;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package com.hri.hri_web_backend.dto;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
-@Entity
 @Getter
-@Setter
-public class Project {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "project_id")
-	private Long id;
+public class ProjectDto {
 
 	private String topic;
-
 	private String subTopic;
-
 	private String detail1;
 	private String detail2;
 	private String detail3;
@@ -32,9 +16,7 @@ public class Project {
 
 	//영문
 	private String engTopic;
-
 	private String engSubTopic;
-
 	private String engDetail1;
 	private String engDetail2;
 	private String engDetail3;
@@ -43,11 +25,11 @@ public class Project {
 
 	private String photo;
 
-	protected Project(){
+	protected ProjectDto(){
 	}
 
 	@Builder
-	public Project(String topic, String subTopic, String detail1, String detail2, String detail3, String detail4, String detail5,
+	public ProjectDto(String topic, String subTopic, String detail1, String detail2, String detail3, String detail4, String detail5,
 		String engTopic, String engSubTopic, String engDetail1, String engDetail2, String engDetail3, String engDetail4, String engDetail5, String photo){
 		this.topic = topic;
 		this.subTopic = subTopic;
