@@ -2,10 +2,14 @@ package com.hri.hri_web_backend.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import com.hri.hri_web_backend.domain.Member;
-import com.hri.hri_web_backend.domain.MemberDto;
+import com.hri.hri_web_backend.dto.MemberByDegreeDto;
+import com.hri.hri_web_backend.dto.MemberDto;
+import com.hri.hri_web_backend.global.DegreeEnum;
 import com.hri.hri_web_backend.repository.MemberRepository;
+
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -31,6 +35,7 @@ public class MemberService {
             .photo(memberDto.getPhoto())
             .degree(memberDto.getDegree())
             .graduate(memberDto.getGraduate())
+            .researchArea(memberDto.getResearchArea())
             .build();
         memberRepository.save(member);
     }
@@ -47,10 +52,18 @@ public class MemberService {
             selectMember.setPhoto(memberDto.getPhoto());
             selectMember.setDegree(memberDto.getDegree());
             selectMember.setGraduate(memberDto.getGraduate());
+            selectMember.setResearchArea(memberDto.getResearchArea());
         });
     }
 
     public void deleteMember(Long id){
         memberRepository.deleteById(id);
+    }
+
+    public List<MemberByDegreeDto> getMembersByDegree(DegreeEnum degree) {
+        List<Member> members = memberRepository.findAllByDegree(degree);
+        return  members.stream().map(
+            member -> new MemberByDegreeDto(member.getName(), member.getEngName(), member.getEmail(), member.getPhoto(), member.getGraduate(), member.getResearchArea())
+        ).collect(Collectors.toList());
     }
 }

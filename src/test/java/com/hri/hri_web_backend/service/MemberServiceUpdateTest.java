@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.hri.hri_web_backend.domain.Member;
-import com.hri.hri_web_backend.domain.MemberDto;
+import com.hri.hri_web_backend.dto.MemberDto;
 import com.hri.hri_web_backend.fixture.MemberFixture;
 
 @SpringBootTest

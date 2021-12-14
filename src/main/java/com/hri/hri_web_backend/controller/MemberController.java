@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.hri.hri_web_backend.domain.MemberDto;
+import com.hri.hri_web_backend.dto.MemberByDegreeDto;
+import com.hri.hri_web_backend.dto.MemberDto;
+import com.hri.hri_web_backend.global.DegreeEnum;
 import com.hri.hri_web_backend.global.StatusEnum;
 import com.hri.hri_web_backend.global.SuccessResponse;
 import com.hri.hri_web_backend.domain.Member;
@@ -25,6 +27,17 @@ public class MemberController {
     @GetMapping("/members")
     public SuccessResponse getMembers(){
         List<Member> members = memberService.getMembers();
+        return SuccessResponse.builder()
+            .status(StatusEnum.OK)
+            .message("모든 구성원 조회 성공")
+            .data(members)
+            .build();
+    }
+
+    @ResponseBody
+    @GetMapping("/members/{degree}")
+    public SuccessResponse getMembers(@PathVariable DegreeEnum degree){
+        List<MemberByDegreeDto> members = memberService.getMembersByDegree(degree);
         return SuccessResponse.builder()
             .status(StatusEnum.OK)
             .message("모든 구성원 조회 성공")
