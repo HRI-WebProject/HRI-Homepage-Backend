@@ -4,17 +4,17 @@ import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-public class UpdateRequestDto {
+public class UpdateProjectRequestDto {
 
 	private String topic;
 
 	private String detail;
 
-	protected UpdateRequestDto(){
+	protected UpdateProjectRequestDto(){
 	}
 
 	@Builder
-	public UpdateRequestDto(String topic, String detail){
+	public UpdateProjectRequestDto(String topic, String detail){
 		this.topic = topic;
 		this.detail = detail;
 	}

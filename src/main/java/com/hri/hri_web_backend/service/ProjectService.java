@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.hri.hri_web_backend.dto.RegisterProjectDto;
-import com.hri.hri_web_backend.dto.UpdateRequestDto;
+import com.hri.hri_web_backend.dto.UpdateProjectRequestDto;
 import com.hri.hri_web_backend.domain.Project;
 import com.hri.hri_web_backend.repository.ProjectRepository;
 
@@ -30,7 +30,7 @@ public class ProjectService {
 		projectRepository.save(project);
 	}
 
-	public void changeProjectInfo(UpdateRequestDto dto, long id){
+	public void changeProjectInfo(UpdateProjectRequestDto dto, long id){
 		Optional<Project> updateProject = projectRepository.findById(id);
 		if(updateProject.isEmpty())
 			throw new NullPointerException();

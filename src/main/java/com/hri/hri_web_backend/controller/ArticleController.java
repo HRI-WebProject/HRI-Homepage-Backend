@@ -5,15 +5,12 @@ import java.util.Optional;
 import javax.annotation.PostConstruct;
 import javax.validation.Valid;
 
+import com.hri.hri_web_backend.dto.UpdateArticleRequestDto;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.hri.hri_web_backend.domain.Article;
-import com.hri.hri_web_backend.dto.ArticleDto;
+import com.hri.hri_web_backend.dto.GetArticleRequestDto;
 import com.hri.hri_web_backend.global.BoardType;
 import com.hri.hri_web_backend.global.StatusEnum;
 import com.hri.hri_web_backend.global.SuccessResponse;
@@ -82,11 +79,20 @@ public class ArticleController {
 
 	@GetMapping("/board/{boardType}/page/{page}")
 	public SuccessResponse getArticlesByType(@PathVariable BoardType boardType, @PathVariable Integer page){
-		Page<ArticleDto> articlesByType = articleService.getArticlesByType(boardType, page);
+		Page<GetArticleRequestDto> articlesByType = articleService.getArticlesByType(boardType, page);
 		return SuccessResponse.builder()
 			.status(StatusEnum.OK)
 			.data(articlesByType)
 			.message("게시판 조회 성공")
 			.build();
+	}
+
+	@PutMapping("/board/{id}")
+	public SuccessResponse updateArticle(@PathVariable Long id, UpdateArticleRequestDto dto){
+		articleService.updateArticle(id, dto);
+		return SuccessResponse.builder()
+				.status(StatusEnum.OK)
+				.message("게시판 수정 성공")
+				.build();
 	}
 }
