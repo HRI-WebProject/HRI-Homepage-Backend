@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class MemberController {
     private final MemberService memberService;
-    private final ProjectService projectService;
 
     @ResponseBody
     @GetMapping("/members")
