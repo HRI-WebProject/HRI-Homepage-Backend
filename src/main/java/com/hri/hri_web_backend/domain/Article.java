@@ -12,9 +12,11 @@ import com.hri.hri_web_backend.global.BoardType;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Getter
+@Setter
 public class Article {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

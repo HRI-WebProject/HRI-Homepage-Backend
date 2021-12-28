@@ -8,13 +8,13 @@ import lombok.Setter;
 //글 목록 불러올 때 사용
 @Getter
 @Setter
-public class ArticleDto {
+public class GetArticleRequestDto {
 	Long id;
 	String topic;
 	LocalDateTime createDate;
 	String author;
 
-	public ArticleDto(Long id, String topic, String author, LocalDateTime createDate) {
+	public GetArticleRequestDto(Long id, String topic, String author, LocalDateTime createDate) {
 		this.id = id;
 		this.topic = topic;
 		this.createDate = createDate;

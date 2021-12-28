@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.hri.hri_web_backend.dto.RegisterProjectDto;
+import com.hri.hri_web_backend.dto.UpdateProjectRequestDto;
 import com.hri.hri_web_backend.dto.EngProjectDto;
 import com.hri.hri_web_backend.dto.KrProjectDto;
 import com.hri.hri_web_backend.domain.Project;
@@ -56,7 +58,7 @@ public class ProjectService {
 		projectRepository.save(project);
 	}
 
-	public void changeProjectInfo(ProjectDto dto, long id){
+	public void changeProjectInfo(UpdateProjectRequestDto dto, long id){
 		Optional<Project> updateProject = projectRepository.findById(id);
 		if(updateProject.isEmpty())
 			throw new NullPointerException();

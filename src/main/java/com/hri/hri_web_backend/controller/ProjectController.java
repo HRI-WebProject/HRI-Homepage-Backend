@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.hri.hri_web_backend.domain.Project;
+import com.hri.hri_web_backend.dto.UpdateProjectRequestDto;
 import com.hri.hri_web_backend.dto.EngProjectDto;
 import com.hri.hri_web_backend.dto.KrProjectDto;
 import com.hri.hri_web_backend.dto.ProjectDto;
@@ -63,7 +63,7 @@ public class ProjectController {
 
 	@ResponseBody
 	@PutMapping("/admin/projects/{id}")
-	public SuccessResponse updateProject(@Valid @RequestBody ProjectDto dto, @PathVariable long id){
+	public SuccessResponse updateProject(@Valid @RequestBody UpdateProjectRequestDto dto, @PathVariable long id){
 		projectService.changeProjectInfo(dto, id);
 		return SuccessResponse.builder()
 			.status(StatusEnum.OK)
