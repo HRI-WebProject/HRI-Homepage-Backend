@@ -36,4 +36,11 @@ public class ArticleService {
 		return articleRepository.findById(id);
 	}
 
+	public void deleteArticle(BoardType boardType, long id){
+		Optional<Article> article = articleRepository.findById(id);
+		if(article.isPresent() && article.get().getBoardType() == boardType)
+			articleRepository.deleteById(id);
+		else
+			throw  new NullPointerException();
+	}
 }

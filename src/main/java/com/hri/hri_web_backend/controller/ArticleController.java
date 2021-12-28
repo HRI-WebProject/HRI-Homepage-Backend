@@ -6,11 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.validation.Valid;
 
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.hri.hri_web_backend.domain.Article;
 import com.hri.hri_web_backend.dto.ArticleDto;
@@ -88,5 +84,14 @@ public class ArticleController {
 			.data(articlesByType)
 			.message("게시판 조회 성공")
 			.build();
+	}
+
+	@DeleteMapping("/board/{boardType}/{id}")
+	public SuccessResponse deleteArticle(@PathVariable BoardType boardType, @PathVariable Long id) {
+		articleService.deleteArticle(boardType, id);
+		return SuccessResponse.builder()
+				.status(StatusEnum.OK)
+				.message("게시글 삭제 성공")
+				.build();
 	}
 }
