@@ -13,6 +13,8 @@ public class MemberFixture {
 		public static final String PHOTO = "./member1/photo/path";
 		public static final DegreeEnum DEGREE = DegreeEnum.MASTER;
 		public static final boolean GRADUATE = false;
+		public static final String RESEARCHAREA = "ROBOTICS";
+
 
 		public static final Member MEMBER = Member.builder()
 			.name(NAME)
@@ -21,6 +23,7 @@ public class MemberFixture {
 			.photo(PHOTO)
 			.degree(DEGREE)
 			.graduate(GRADUATE)
+			.researchArea(RESEARCHAREA)
 			.build();
 	}
 
@@ -32,6 +35,8 @@ public class MemberFixture {
 		public static final String PHOTO = "./member2/photo/path";
 		public static final DegreeEnum DEGREE = DegreeEnum.BACHELOR;
 		public static final boolean GRADUATE = false;
+		public static final String RESEARCHAREA = "AI";
+
 
 		public static final Member MEMBER = Member.builder()
 			.name(NAME)
@@ -40,6 +45,7 @@ public class MemberFixture {
 			.photo(PHOTO)
 			.degree(DEGREE)
 			.graduate(GRADUATE)
+			.researchArea(RESEARCHAREA)
 			.build();
 	}
 }
