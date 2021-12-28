@@ -37,9 +37,9 @@ public class ArticleService {
 		return articleRepository.findById(id);
 	}
 
-	public void updateArticle(long id, UpdateArticleRequestDto dto){
+	public void updateArticle(BoardType boardType, long id, UpdateArticleRequestDto dto){
 		Optional<Article> article = articleRepository.findById(id);
-		if(article.isEmpty())
+		if(article.isEmpty() || article.get().getBoardType() != boardType)
 			throw new NullPointerException();
 
 		article.ifPresent(selectArticle->{

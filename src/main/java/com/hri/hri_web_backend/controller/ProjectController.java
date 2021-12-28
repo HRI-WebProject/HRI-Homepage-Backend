@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.hri.hri_web_backend.domain.Project;
-import com.hri.hri_web_backend.dto.RegisterProjectDto;
 import com.hri.hri_web_backend.dto.UpdateProjectRequestDto;
 import com.hri.hri_web_backend.dto.EngProjectDto;
 import com.hri.hri_web_backend.dto.KrProjectDto;
