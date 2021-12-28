@@ -1,7 +1,5 @@
 package com.hri.hri_web_backend.controller;
 
-import com.hri.hri_web_backend.domain.Member;
-import com.hri.hri_web_backend.domain.MemberDto;
 import com.hri.hri_web_backend.domain.Professor;
 import com.hri.hri_web_backend.dto.ProfessorDto;
 import com.hri.hri_web_backend.global.StatusEnum;
