@@ -10,7 +10,7 @@ public class ProjectFixture {
 		public static final String TOPIC = "project1_topic";
 
 		public static final Project PROJECT = Project.builder()
-			.detail(DETAIL)
+			.detail1(DETAIL)
 			.topic(TOPIC)
 			.build();
 	}
