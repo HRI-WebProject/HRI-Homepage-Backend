@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,20 +33,24 @@ public class Member {
 
     private String photo;
 
+    @Enumerated(EnumType.STRING)
     private DegreeEnum degree;
 
     private Boolean graduate;
+
+	private String researchArea;
 
     protected Member() {
     }
 
     @Builder
-    public Member(String name, String engName, String email, String photo, DegreeEnum degree, Boolean graduate) {
+    public Member(String name, String engName, String email, String photo, DegreeEnum degree, Boolean graduate, String researchArea) {
         this.name = name;
         this.engName = engName;
         this.email = email;
         this.photo = photo;
         this.degree = degree;
         this.graduate = graduate;
+		this.researchArea = researchArea;
     }
 }

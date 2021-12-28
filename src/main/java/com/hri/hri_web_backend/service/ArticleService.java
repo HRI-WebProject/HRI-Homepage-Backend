@@ -47,5 +47,14 @@ public class ArticleService {
 			selectArticle.setAuthor(dto.getAuthor());
 			selectArticle.setContent(dto.getContent());
 		});
+  }
+  
+	public void deleteArticle(BoardType boardType, long id){
+		Optional<Article> article = articleRepository.findById(id);
+		if(article.isPresent() && article.get().getBoardType() == boardType)
+			articleRepository.deleteById(id);
+		else
+			throw  new NullPointerException();
+    
 	}
 }

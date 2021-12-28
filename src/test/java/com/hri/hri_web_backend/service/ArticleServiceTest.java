@@ -2,21 +2,31 @@ package com.hri.hri_web_backend.service;
 
 import java.util.Optional;
 
+import com.hri.hri_web_backend.fixture.ArticleTestFixture;
+import com.hri.hri_web_backend.repository.ArticleRepository;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hri.hri_web_backend.controller.ArticleFixture;
 import com.hri.hri_web_backend.domain.Article;
-import com.hri.hri_web_backend.service.ArticleService;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.times;
 
 @SpringBootTest
 @Transactional
 class ArticleServiceTest {
 	@Autowired
 	ArticleService articleService;
+
+	@Mock
+	ArticleRepository articleRepository;
 
 	@Test
 	void 게시글등록_및_조회() {
@@ -48,4 +58,13 @@ class ArticleServiceTest {
 		// System.out.println("articles.get(1).getCreateDate() = " + articles.get(1).getCreateDate());
 	}
 
+	@DisplayName("게시판 게시글을 삭제한다")
+	@Test
+	public void deleteArticle() throws Exception{
+		//when
+		articleService.deleteArticle(ArticleFixture.Article1.BOARDTYPE, ArticleTestFixture.Article1.ID);
+
+		//then
+		then(articleRepository).should(times(1)).deleteById(any());
+	}
 }

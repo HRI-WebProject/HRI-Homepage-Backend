@@ -93,6 +93,13 @@ public class ArticleController {
 		return SuccessResponse.builder()
 				.status(StatusEnum.OK)
 				.message("게시판 수정 성공")
+      
+	@DeleteMapping("/board/{boardType}/{id}")
+	public SuccessResponse deleteArticle(@PathVariable BoardType boardType, @PathVariable Long id) {
+		articleService.deleteArticle(boardType, id);
+		return SuccessResponse.builder()
+				.status(StatusEnum.OK)
+				.message("게시글 삭제 성공")
 				.build();
 	}
 }

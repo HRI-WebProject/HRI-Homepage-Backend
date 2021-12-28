@@ -12,8 +12,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.hri.hri_web_backend.domain.Project;
-import com.hri.hri_web_backend.dto.RegisterProjectDto;
+import com.hri.hri_web_backend.dto.KrProjectDto;
+import com.hri.hri_web_backend.dto.ProjectDto;
 import com.hri.hri_web_backend.fixture.ProjectFixture;
 import com.hri.hri_web_backend.repository.ProjectRepository;
 
@@ -30,7 +30,7 @@ public class ProjectServiceTest {
 	@Test
 	public void getProjects() throws Exception {
 		//when
-		List<Project> projects = projectService.getProjects();
+		List<KrProjectDto> projects = projectService.getProjects();
 		//then
 		then(projectRepository).should(times(1)).findAll();
 	}
@@ -39,8 +39,8 @@ public class ProjectServiceTest {
 	@Test
 	public void registerProject() throws Exception {
 		//given
-		final RegisterProjectDto projectDto = RegisterProjectDto.builder()
-			.detail(ProjectFixture.Project1.DETAIL)
+		final ProjectDto projectDto = ProjectDto.builder()
+			.detail1(ProjectFixture.Project1.DETAIL)
 			.topic(ProjectFixture.Project1.TOPIC)
 			.build();
 		//when
