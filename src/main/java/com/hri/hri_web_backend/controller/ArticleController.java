@@ -55,7 +55,7 @@ public class ArticleController {
 			.build();
 	}
 
-	@PutMapping("/board/{boardType}/{id}")
+	@PutMapping("/admin/board/{boardType}/{id}")
 	public SuccessResponse updateArticle(@PathVariable BoardType boardType, @PathVariable Long id, UpdateArticleRequestDto dto) {
 		articleService.updateArticle(boardType, id, dto);
 		return SuccessResponse.builder()
@@ -64,7 +64,7 @@ public class ArticleController {
 			.build();
 	}
       
-	@DeleteMapping("/board/{boardType}/{id}")
+	@DeleteMapping("/admin/board/{boardType}/{id}")
 	public SuccessResponse deleteArticle(@PathVariable BoardType boardType, @PathVariable Long id) {
 		articleService.deleteArticle(boardType, id);
 		return SuccessResponse.builder()

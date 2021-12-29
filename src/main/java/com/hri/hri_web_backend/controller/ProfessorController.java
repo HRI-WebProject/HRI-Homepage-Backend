@@ -40,7 +40,7 @@ public class ProfessorController {
     }
 
     @ResponseBody
-    @PutMapping("/admin/professors")
+    @PutMapping("/admin/professors/{id}")
     public SuccessResponse updateProfessor(@Valid @RequestBody ProfessorDto professorDto, @PathVariable Long id){
         professorService.changeProfessorInfo(professorDto, id);
         return SuccessResponse.builder()
@@ -50,7 +50,7 @@ public class ProfessorController {
     }
 
     @ResponseBody
-    @DeleteMapping("/admin/professors")
+    @DeleteMapping("/admin/professors/{id}")
     public SuccessResponse deleteProfessor(@PathVariable Long id){
         professorService.deleteProfessor(id);
         return SuccessResponse.builder()
