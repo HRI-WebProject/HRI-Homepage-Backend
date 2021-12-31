@@ -19,10 +19,10 @@ INSERT INTO publication (topic, publication_type) VALUES ('Jin-Woo Jung; Jung-So
 INSERT INTO publication (topic, publication_type) VALUES ('Jin-Woo Jung; Byung-Chul So; Jin-Gu Kang; Dong-Woo Lim; Yunsik Son. Expanded Douglas–Peucker Polygonal Approximation and Opposite Angle-Based Exact Cell Decomposition for Path Planning with Curvilinear Obstacles. Applied Sciences 2019, 9(4), 638. (SCIE)', 'JOURNAL');
 INSERT INTO publication (topic, publication_type) VALUES ('Gi-Yoon Jeon; Jin-Woo Jung. Water Sink Model for Robot Motion Planning. Sensors 2019, 19(6). (SCIE)', 'JOURNAL');
 
-INSERT INTO project (project_id, detail1, detail2, detail3, detail4, detail5, eng_detail1, eng_detail2, eng_detail3, eng_detail4, eng_detail5, eng_sub_topic, eng_topic, photo, sub_topic, topic) VALUES (1, ‘ex_detail1’, ‘ex_detail2’, ‘ex_detail3’, ‘ex_detail4’, ‘ex_detail5’, ‘ex_eng_detail1’, ‘ex_eng_detail2’, ‘ex_eng_detail3’, ‘ex_eng_detail4’, ‘ex_eng_detail5’, ‘ex_eng_subTopic’, ‘ex_eng_topic’, ‘ex_photo_path’, ‘ex_sub_topic’, ‘ex_topic’);
+INSERT INTO project (detail1, detail2, detail3, detail4, detail5, eng_detail1, eng_detail2, eng_detail3, eng_detail4, eng_detail5, eng_sub_topic, eng_topic, photo, sub_topic, topic) VALUES ('ex_detail1', 'ex_detail2', 'ex_detail3', 'ex_detail4', 'ex_detail5', 'ex_eng_detail1', 'ex_eng_detail2', 'ex_eng_detail3', 'ex_eng_detail4', 'ex_eng_detail5', 'ex_eng_subTopic', 'ex_eng_topic', 'ex_photo_path', 'ex_sub_topic', 'ex_topic');
 
-INSERT INTO research_area (research_area_id, detail, eng_detail, eng_name, name, photo) VALUES (1, ‘ex_detail’, ‘ex_eng_detail’, ‘ex_eng_name’, ‘ex_name’, ‘ex_photo_path’);
+INSERT INTO research_area (detail, eng_detail, eng_name, name, photo) VALUES ('ex_detail', 'ex_eng_detail', 'ex_eng_name', 'ex_name', 'ex_photo_path');
 
-INSERT INTO research_equipment (research_area_id, eng_name, name, photo) VALUES (1, ‘ex_eng_name’, ‘ex_name’, ‘ex_photo’);
+INSERT INTO research_equipment (eng_name, name, photo) VALUES ('ex_eng_name', 'ex_name', 'ex_photo');
 
-INSERT INTO article (article_id, author, board_type, content, create_date, topic) VALUES (1, ‘Jin-Woo Jung’, 1, ‘ex_content’, ‘2020-01-28 22:13:11’, ‘ex_sub_topic’);
+INSERT INTO article (author, board_type, content, create_date, topic) VALUES ('Jin-Woo Jung', 'NOTICE', 'ex_content', '2020-01-28 22:13:11', 'ex_sub_topic');
