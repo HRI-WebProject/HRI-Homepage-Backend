@@ -25,7 +25,7 @@ create table administrator (
 create table article (
                          article_id bigint not null auto_increment,
                          author varchar(255),
-                         board_type integer,
+                         board_type varchar(255),
                          content varchar(1000),
                          create_date datetime(6),
                          topic varchar(255),
