@@ -5,22 +5,21 @@ import lombok.Getter;
 
 @Getter
 public class KrProjectDto {
+	private Long id;
 	private String topic;
-
 	private String subTopic;
-
 	private String detail1;
 	private String detail2;
 	private String detail3;
 	private String detail4;
 	private String detail5;
-
 	private String photo;
 
 	protected KrProjectDto(){}
 
 	@Builder
-	public KrProjectDto(String topic, String subTopic, String detail1, String detail2, String detail3, String detail4, String detail5, String photo){
+	public KrProjectDto(Long id, String topic, String subTopic, String detail1, String detail2, String detail3, String detail4, String detail5, String photo){
+		this.id = id;
 		this.topic = topic;
 		this.subTopic = subTopic;
 		this.detail1 = detail1;
