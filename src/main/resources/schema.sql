@@ -84,7 +84,13 @@ create table project (
 create table publication (
                              pubilcation_id bigint not null auto_increment,
                              detail varchar(255),
+                             filling_date date,
+                             filling_no varchar(255),
+                             granted_date date,
+                             granted_no varchar(255),
+                             inventor varchar(255),
                              link varchar(255),
+                             progress varchar(255),
                              publication_type varchar(255),
                              topic varchar(255) not null,
                              primary key (pubilcation_id)
