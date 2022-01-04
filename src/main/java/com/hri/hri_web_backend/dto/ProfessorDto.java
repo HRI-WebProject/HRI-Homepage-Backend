@@ -11,27 +11,12 @@ import javax.persistence.Id;
 @Getter
 public class ProfessorDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_id")
-    private Long id;
-
-    @Column(nullable = false)
     private String name;
-
-    @Column(name = "eng_name")
     private String engName;
-
     private String email;
-
     private String photo;
-
     private String boldDetail;
-
     private String detail;
-
-    protected ProfessorDto() {
-    }
 
     @Builder
     public ProfessorDto(String name, String engName, String email, String photo, String boldDetail, String detail) {
