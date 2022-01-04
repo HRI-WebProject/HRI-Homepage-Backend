@@ -1,6 +1,6 @@
 package com.hri.hri_web_backend.domain;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,14 +28,10 @@ public class Publication {
 
 	String inventor;
 
-	@Column(name = "filling_no")
 	String fillingNo;
-	@Column(name = "filling_date")
-	LocalDateTime fillingDate;
-	@Column(name = "granted_no")
+	LocalDate fillingDate;
 	String grantedNo;
-	@Column(name = "granted_date")
-	LocalDateTime grantedDate;
+	LocalDate grantedDate;
 
 	String progress;
 
@@ -49,7 +45,7 @@ public class Publication {
 	}
 
 	@Builder
-	public Publication(String topic, String link, String detail, PublicationType publicationType, String inventor, String fillingNo, LocalDateTime fillingDate, String grantedNo, LocalDateTime grantedDate, String progress){
+	public Publication(String topic, String link, String detail, PublicationType publicationType, String inventor, String fillingNo, LocalDate fillingDate, String grantedNo, LocalDate grantedDate, String progress){
 		this.topic = topic;
 		this.link = link;
 		this.detail = detail;
