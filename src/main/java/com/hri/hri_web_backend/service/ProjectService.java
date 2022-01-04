@@ -23,14 +23,14 @@ public class ProjectService {
 
 	public List<KrProjectDto> getProjects(){
 		List<Project> projects = projectRepository.findAll();
-		return projects.stream().map(project -> new KrProjectDto(project.getTopic(), project.getSubTopic(),
+		return projects.stream().map(project -> new KrProjectDto(project.getId(), project.getTopic(), project.getSubTopic(),
 			project.getDetail1(), project.getDetail2(), project.getDetail3(), project.getDetail4(), project.getDetail5(),
 			project.getPhoto())).collect(Collectors.toList());
 	}
 
 	public List<EngProjectDto> getEngProjects() {
 		List<Project> projects = projectRepository.findAll();
-		return projects.stream().map(project -> new EngProjectDto(project.getEngTopic(), project.getEngSubTopic(),
+		return projects.stream().map(project -> new EngProjectDto(project.getId(), project.getEngTopic(), project.getEngSubTopic(),
 			project.getEngDetail1(), project.getEngDetail2(), project.getEngDetail3(), project.getEngDetail4(),
 			project.getEngDetail5(), project.getPhoto())).collect(Collectors.toList());
 	}

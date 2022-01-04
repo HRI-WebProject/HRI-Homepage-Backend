@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 public class MemberByDegreeDto {
 
+	private Long id;
 	private String name;
 	private String engName;
 	private String email;
@@ -16,7 +17,8 @@ public class MemberByDegreeDto {
 	protected MemberByDegreeDto(){}
 
 	@Builder
-	public MemberByDegreeDto(String name, String engName, String email, String photo, Boolean graduate, String researchArea) {
+	public MemberByDegreeDto(Long id, String name, String engName, String email, String photo, Boolean graduate, String researchArea) {
+		this.id = id;
 		this.name = name;
 		this.engName = engName;
 		this.email = email;

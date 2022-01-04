@@ -63,7 +63,7 @@ public class MemberService {
     public List<MemberByDegreeDto> getMembersByDegree(DegreeEnum degree) {
         List<Member> members = memberRepository.findAllByDegree(degree);
         return  members.stream().map(
-            member -> new MemberByDegreeDto(member.getName(), member.getEngName(), member.getEmail(), member.getPhoto(), member.getGraduate(), member.getResearchArea())
+            member -> new MemberByDegreeDto(member.getId(), member.getName(), member.getEngName(), member.getEmail(), member.getPhoto(), member.getGraduate(), member.getResearchArea())
         ).collect(Collectors.toList());
     }
 }

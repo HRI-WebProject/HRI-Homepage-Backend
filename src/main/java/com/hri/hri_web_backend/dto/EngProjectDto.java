@@ -5,23 +5,19 @@ import lombok.Getter;
 
 @Getter
 public class EngProjectDto {
-
+	private Long id;
 	private String engTopic;
-
 	private String engSubTopic;
-
 	private String engDetail1;
 	private String engDetail2;
 	private String engDetail3;
 	private String engDetail4;
 	private String engDetail5;
-
 	private String photo;
 
-	protected EngProjectDto(){}
-
 	@Builder
-	public EngProjectDto(String engTopic, String engSubTopic, String engDetail1, String engDetail2, String engDetail3, String engDetail4, String engDetail5, String photo){
+	public EngProjectDto(Long id, String engTopic, String engSubTopic, String engDetail1, String engDetail2, String engDetail3, String engDetail4, String engDetail5, String photo){
+		this.id = id;
 		this.engTopic = engTopic;
 		this.engSubTopic = engSubTopic;
 		this.engDetail1 = engDetail1;
