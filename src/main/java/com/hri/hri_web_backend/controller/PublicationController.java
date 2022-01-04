@@ -40,7 +40,7 @@ public class PublicationController {
 	}
 
 	//생성
-	@PostMapping(value = "/admin/publications/new")
+	@PostMapping(value = "/admin/publications")
 	public SuccessResponse create(@Valid @RequestBody PublicationDto publicationDto){ //SuccessResponse
 		publicationService.savePublication(publicationDto);
 		return SuccessResponse.builder()
