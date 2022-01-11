@@ -107,11 +107,11 @@ create table research_area (
 );
 
 create table research_equipment (
-                                    research_area_id bigint not null auto_increment,
+                                    research_equipment_id bigint not null auto_increment,
                                     eng_name varchar(255),
                                     name varchar(255) not null,
                                     photo varchar(255),
-                                    primary key (research_area_id)
+                                    primary key (research_equipment_id)
 );
 
 create table salt (

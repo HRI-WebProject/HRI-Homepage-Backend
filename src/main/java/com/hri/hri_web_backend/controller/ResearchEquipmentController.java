@@ -20,7 +20,6 @@ import com.hri.hri_web_backend.service.ResearchEquipmentService;
 
 import lombok.RequiredArgsConstructor;
 
-@Controller
 @RequiredArgsConstructor
 @RestController
 public class ResearchEquipmentController {

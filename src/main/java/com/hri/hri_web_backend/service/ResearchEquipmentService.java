@@ -14,7 +14,7 @@ import com.hri.hri_web_backend.repository.ResearchEquipmentRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 @RequiredArgsConstructor
 public class ResearchEquipmentService {
 	private final ResearchEquipmentRepository researchEquipmentRepository;
