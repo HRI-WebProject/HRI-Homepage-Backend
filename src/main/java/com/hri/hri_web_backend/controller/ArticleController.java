@@ -23,15 +23,6 @@ import lombok.RequiredArgsConstructor;
 public class ArticleController {
 	private final ArticleService articleService;
 
-	@PostMapping("/board")
-	public SuccessResponse registerArticle(@Valid @RequestBody Article article){
-		articleService.registerArticle(article);
-		return SuccessResponse.builder()
-			.status(StatusEnum.OK)
-			.message("게시글 등록 성공")
-			.build();
-	}
-
 	@GetMapping("/board/{boardType}/{id}")
 	public SuccessResponse getArticle(@PathVariable BoardType boardType, @PathVariable Long id){
 		Optional<Article> article1 = articleService.getArticle(id);
@@ -52,6 +43,15 @@ public class ArticleController {
 			.status(StatusEnum.OK)
 			.data(articlesByType)
 			.message("게시판 조회 성공")
+			.build();
+	}
+
+	@PostMapping("/admin/board")
+	public SuccessResponse registerArticle(@Valid @RequestBody Article article){
+		articleService.registerArticle(article);
+		return SuccessResponse.builder()
+			.status(StatusEnum.OK)
+			.message("게시글 등록 성공")
 			.build();
 	}
 

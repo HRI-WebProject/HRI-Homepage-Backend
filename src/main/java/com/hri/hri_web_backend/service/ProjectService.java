@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.hri.hri_web_backend.dto.UpdateProjectRequestDto;
@@ -16,6 +18,7 @@ import com.hri.hri_web_backend.repository.ProjectRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class ProjectService {
 
