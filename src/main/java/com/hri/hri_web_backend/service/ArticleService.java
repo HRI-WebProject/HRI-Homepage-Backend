@@ -27,7 +27,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ArticleService {
 	private final ArticleRepository articleRepository;
-	private int pageSize = 5;
+	private int pageSize = 10;
 
 	public void registerArticle(Article article){
 		articleRepository.save(article);
@@ -41,7 +41,7 @@ public class ArticleService {
 	}
 
 	public List<GetArticleRequestDto> getArticlesByType(BoardType boardType){
-		List<Article> articles = articleRepository.findAllByBoardType(boardType);
+		List<Article> articles = articleRepository.findAllByBoardType(boardType, Sort.by(Sort.Direction.DESC, "id"));
 		return articles.stream().map(
 			article -> new GetArticleRequestDto(article.getId(), article.getTopic(), article.getAuthor(),
 				article.getCreateDate())).collect(Collectors.toList());
