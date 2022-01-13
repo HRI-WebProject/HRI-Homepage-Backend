@@ -1,5 +1,6 @@
 package com.hri.hri_web_backend.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.PostConstruct;
@@ -23,8 +24,8 @@ import lombok.RequiredArgsConstructor;
 public class ArticleController {
 	private final ArticleService articleService;
 
-	@GetMapping("/board/{boardType}/{id}")
-	public SuccessResponse getArticle(@PathVariable BoardType boardType, @PathVariable Long id){
+	@GetMapping("/board/{id}")
+	public SuccessResponse getArticle(@PathVariable Long id){
 		Optional<Article> article1 = articleService.getArticle(id);
 		if(article1.isEmpty()){
 			throw new RuntimeException();
@@ -36,13 +37,23 @@ public class ArticleController {
 			.build();
 	}
 
-	@GetMapping("/board/{boardType}/page/{page}")
-	public SuccessResponse getArticlesByType(@PathVariable BoardType boardType, @PathVariable Integer page){
-		Page<GetArticleRequestDto> articlesByType = articleService.getArticlesByType(boardType, page);
+	@GetMapping("/board/type/{boardType}")
+	public SuccessResponse getArticlesByType(@PathVariable BoardType boardType){
+		List<GetArticleRequestDto> articlesByType = articleService.getArticlesByType(boardType);
 		return SuccessResponse.builder()
 			.status(StatusEnum.OK)
 			.data(articlesByType)
-			.message("게시판 조회 성공")
+			.message("타입별 게시글 조회 성공")
+			.build();
+	}
+
+	@GetMapping("/board/{boardType}/page/{page}")
+	public SuccessResponse getArticlesByTypeWithPage(@PathVariable BoardType boardType, @PathVariable Integer page){
+		Page<GetArticleRequestDto> articlesByType = articleService.getArticlesByTypeWithPage(boardType, page);
+		return SuccessResponse.builder()
+			.status(StatusEnum.OK)
+			.data(articlesByType)
+			.message("타입 및 페이지에 따른 게시글 조회 성공")
 			.build();
 	}
 
@@ -55,18 +66,18 @@ public class ArticleController {
 			.build();
 	}
 
-	@PutMapping("/admin/board/{boardType}/{id}")
-	public SuccessResponse updateArticle(@PathVariable BoardType boardType, @PathVariable Long id, UpdateArticleRequestDto dto) {
-		articleService.updateArticle(boardType, id, dto);
+	@PutMapping("/admin/board/{id}")
+	public SuccessResponse updateArticle(@Valid @RequestBody UpdateArticleRequestDto dto, @PathVariable Long id) {
+		articleService.updateArticle(dto, id);
 		return SuccessResponse.builder()
 			.status(StatusEnum.OK)
 			.message("게시판 수정 성공")
 			.build();
 	}
       
-	@DeleteMapping("/admin/board/{boardType}/{id}")
-	public SuccessResponse deleteArticle(@PathVariable BoardType boardType, @PathVariable Long id) {
-		articleService.deleteArticle(boardType, id);
+	@DeleteMapping("/admin/board/{id}")
+	public SuccessResponse deleteArticle(@PathVariable Long id) {
+		articleService.deleteArticle(id);
 		return SuccessResponse.builder()
 				.status(StatusEnum.OK)
 				.message("게시글 삭제 성공")

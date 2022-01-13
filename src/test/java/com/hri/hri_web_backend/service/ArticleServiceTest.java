@@ -62,7 +62,7 @@ class ArticleServiceTest {
 	@Test
 	public void deleteArticle() throws Exception{
 		//when
-		articleService.deleteArticle(ArticleFixture.Article1.BOARDTYPE, ArticleTestFixture.Article1.ID);
+		articleService.deleteArticle(ArticleTestFixture.Article1.ID);
 
 		//then
 		then(articleRepository).should(times(1)).deleteById(any());
