@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hri.hri_web_backend.domain.Publication;
-import com.hri.hri_web_backend.domain.PublicationType;
+import com.hri.hri_web_backend.global.PublicationType;
 import com.hri.hri_web_backend.dto.PublicationDto;
 
 @SpringBootTest

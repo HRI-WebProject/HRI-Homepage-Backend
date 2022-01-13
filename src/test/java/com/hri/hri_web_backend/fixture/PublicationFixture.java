@@ -1,9 +1,7 @@
 package com.hri.hri_web_backend.fixture;
 
-import com.hri.hri_web_backend.domain.Member;
 import com.hri.hri_web_backend.domain.Publication;
-import com.hri.hri_web_backend.domain.PublicationType;
-import com.hri.hri_web_backend.global.DegreeEnum;
+import com.hri.hri_web_backend.global.PublicationType;
 
 public class PublicationFixture {
 	public static class Publication1{

@@ -1,4 +1,4 @@
-package com.hri.hri_web_backend.domain;
+package com.hri.hri_web_backend.global;
 
 public enum PublicationType {
 	//학술지, 학술대회, 특허, 도서 소개

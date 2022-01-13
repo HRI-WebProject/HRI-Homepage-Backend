@@ -26,7 +26,6 @@ public class Article {
 	private Long id;
 
 	private String topic;
-	@Column(length = 1000)
 	private String content;
 	private LocalDateTime createDate = LocalDateTime.now();
 	private String author;
