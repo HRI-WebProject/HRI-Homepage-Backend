@@ -1,5 +1,6 @@
 package com.hri.hri_web_backend.domain;
 
+import com.hri.hri_web_backend.global.UserRole;
 import lombok.Getter;
 import lombok.Setter;
 

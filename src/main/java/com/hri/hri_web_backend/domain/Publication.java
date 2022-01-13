@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.hri.hri_web_backend.global.PublicationType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

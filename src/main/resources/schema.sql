@@ -26,9 +26,9 @@ create table article (
                          article_id bigint not null auto_increment,
                          author varchar(255),
                          board_type varchar(255),
-                         content varchar(1000),
+                         content varchar(2500),
                          create_date datetime(6),
-                         topic varchar(255),
+                         topic varchar(500),
                          primary key (article_id)
 );
 
@@ -45,19 +45,19 @@ create table member (
                         eng_name varchar(255),
                         graduate bit,
                         name varchar(255) not null,
-                        photo varchar(255),
+                        photo varchar(500),
                         research_area varchar(255),
                         primary key (member_id)
 );
 
 create table professor (
                            member_id bigint not null auto_increment,
-                           bold_detail varchar(255),
-                           detail varchar(255),
+                           bold_detail varchar(500),
+                           detail varchar(1000),
                            email varchar(255),
                            eng_name varchar(255),
                            name varchar(255) not null,
-                           photo varchar(255),
+                           photo varchar(500),
                            primary key (member_id)
 );
 
@@ -75,7 +75,7 @@ create table project (
                          eng_detail5 varchar(255),
                          eng_sub_topic varchar(255),
                          eng_topic varchar(255),
-                         photo varchar(255),
+                         photo varchar(500),
                          sub_topic varchar(255),
                          topic varchar(255),
                          primary key (project_id)
@@ -83,26 +83,26 @@ create table project (
 
 create table publication (
                              pubilcation_id bigint not null auto_increment,
-                             detail varchar(255),
+                             detail varchar(1000),
                              filling_date date,
                              filling_no varchar(255),
                              granted_date date,
                              granted_no varchar(255),
                              inventor varchar(255),
-                             link varchar(255),
+                             link varchar(500),
                              progress varchar(255),
                              publication_type varchar(255),
-                             topic varchar(255) not null,
+                             topic varchar(500) not null,
                              primary key (pubilcation_id)
 );
 
 create table research_area (
                                research_area_id bigint not null auto_increment,
-                               detail varchar(255),
-                               eng_detail varchar(255),
+                               detail varchar(1000),
+                               eng_detail varchar(1000),
                                eng_name varchar(255),
                                name varchar(255) not null,
-                               photo varchar(255),
+                               photo varchar(500),
                                primary key (research_area_id)
 );
 
@@ -110,7 +110,7 @@ create table research_equipment (
                                     research_equipment_id bigint not null auto_increment,
                                     eng_name varchar(255),
                                     name varchar(255) not null,
-                                    photo varchar(255),
+                                    photo varchar(500),
                                     primary key (research_equipment_id)
 );
 

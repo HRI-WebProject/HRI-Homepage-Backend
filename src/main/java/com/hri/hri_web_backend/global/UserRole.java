@@ -1,4 +1,4 @@
-package com.hri.hri_web_backend.domain;
+package com.hri.hri_web_backend.global;
 
 public enum UserRole {
 	//ROLE_USER, ROLE_MANAGER

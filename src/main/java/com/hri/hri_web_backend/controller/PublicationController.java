@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hri.hri_web_backend.domain.Publication;
-import com.hri.hri_web_backend.domain.PublicationType;
+import com.hri.hri_web_backend.global.PublicationType;
 import com.hri.hri_web_backend.dto.PublicationDto;
 import com.hri.hri_web_backend.global.StatusEnum;
 import com.hri.hri_web_backend.global.SuccessResponse;

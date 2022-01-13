@@ -2,7 +2,7 @@ package com.hri.hri_web_backend.dto;
 
 import java.time.LocalDate;
 
-import com.hri.hri_web_backend.domain.PublicationType;
+import com.hri.hri_web_backend.global.PublicationType;
 
 import lombok.Getter;
 import lombok.Setter;
