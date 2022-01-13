@@ -12,6 +12,9 @@ public class UpdateArticleRequestDto {
     private String content;
     private String author;
 
+    protected UpdateArticleRequestDto(){
+    }
+
     @Builder
     public UpdateArticleRequestDto(String topic, String content, String author){
         this.topic = topic;

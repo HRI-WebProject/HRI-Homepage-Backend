@@ -1,5 +1,6 @@
 package com.hri.hri_web_backend.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.PostConstruct;
@@ -23,8 +24,8 @@ import lombok.RequiredArgsConstructor;
 public class ArticleController {
 	private final ArticleService articleService;
 
-	@GetMapping("/board/{boardType}/{id}")
-	public SuccessResponse getArticle(@PathVariable BoardType boardType, @PathVariable Long id){
+	@GetMapping("/board/{id}")
+	public SuccessResponse getArticle(@PathVariable Long id){
 		Optional<Article> article1 = articleService.getArticle(id);
 		if(article1.isEmpty()){
 			throw new RuntimeException();
@@ -36,9 +37,19 @@ public class ArticleController {
 			.build();
 	}
 
+	@GetMapping("/board/type/{boardType}")
+	public SuccessResponse getArticlesByType(@PathVariable BoardType boardType){
+		List<GetArticleRequestDto> articlesByType = articleService.getArticlesByType(boardType);
+		return SuccessResponse.builder()
+			.status(StatusEnum.OK)
+			.data(articlesByType)
+			.message("게시판 조회 성공")
+			.build();
+	}
+
 	@GetMapping("/board/{boardType}/page/{page}")
-	public SuccessResponse getArticlesByType(@PathVariable BoardType boardType, @PathVariable Integer page){
-		Page<GetArticleRequestDto> articlesByType = articleService.getArticlesByType(boardType, page);
+	public SuccessResponse getArticlesByTypeWithPage(@PathVariable BoardType boardType, @PathVariable Integer page){
+		Page<GetArticleRequestDto> articlesByType = articleService.getArticlesByTypeWithPage(boardType, page);
 		return SuccessResponse.builder()
 			.status(StatusEnum.OK)
 			.data(articlesByType)
@@ -56,7 +67,7 @@ public class ArticleController {
 	}
 
 	@PutMapping("/admin/board/{boardType}/{id}")
-	public SuccessResponse updateArticle(@PathVariable BoardType boardType, @PathVariable Long id, UpdateArticleRequestDto dto) {
+	public SuccessResponse updateArticle(@Valid @RequestBody UpdateArticleRequestDto dto, @PathVariable BoardType boardType, @PathVariable Long id) {
 		articleService.updateArticle(boardType, id, dto);
 		return SuccessResponse.builder()
 			.status(StatusEnum.OK)
