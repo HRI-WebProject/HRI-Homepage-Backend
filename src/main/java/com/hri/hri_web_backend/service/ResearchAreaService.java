@@ -14,7 +14,7 @@ import com.hri.hri_web_backend.repository.ResearchAreaRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 @RequiredArgsConstructor
 public class ResearchAreaService {
 	private final ResearchAreaRepository researchAreaRepository;

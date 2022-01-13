@@ -16,7 +16,7 @@ import lombok.Setter;
 public class ResearchEquipment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "researchArea_id")
+	@Column(name = "research_equipment_id")
 	private Long id;
 
 	@Column(nullable = false)

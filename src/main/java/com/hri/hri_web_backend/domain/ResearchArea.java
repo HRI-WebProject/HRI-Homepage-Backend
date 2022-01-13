@@ -16,20 +16,16 @@ import lombok.Setter;
 public class ResearchArea {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "researchArea_id")
+	@Column(name = "research_area_id")
 	private Long id;
 
 	@Column(nullable = false)
 	private String name;
-
-	@Column(name = "eng_name")
 	private String engName;
 
 	private String photo;
 
 	private String detail;
-
-	@Column(name = "eng_detail")
 	private String engDetail;
 
 	protected ResearchArea(){}
