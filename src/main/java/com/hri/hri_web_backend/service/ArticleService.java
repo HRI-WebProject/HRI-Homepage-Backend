@@ -59,21 +59,22 @@ public class ArticleService {
 		return articleRepository.findById(id);
 	}
 
-	public void updateArticle(BoardType boardType, long id, UpdateArticleRequestDto dto){
+	public void updateArticle(UpdateArticleRequestDto dto, long id){
 		Optional<Article> article = articleRepository.findById(id);
-		if(article.isEmpty() || article.get().getBoardType() != boardType)
+		if(article.isEmpty())
 			throw new NullPointerException();
 
 		article.ifPresent(selectArticle->{
 			selectArticle.setTopic(dto.getTopic());
 			selectArticle.setAuthor(dto.getAuthor());
 			selectArticle.setContent(dto.getContent());
+			selectArticle.setBoardType(dto.getBoardType());
 		});
   	}
   
-	public void deleteArticle(BoardType boardType, long id){
+	public void deleteArticle(long id){
 		Optional<Article> article = articleRepository.findById(id);
-		if(article.isPresent() && article.get().getBoardType() == boardType)
+		if(article.isPresent())
 			articleRepository.deleteById(id);
 		else
 			throw  new NullPointerException();
