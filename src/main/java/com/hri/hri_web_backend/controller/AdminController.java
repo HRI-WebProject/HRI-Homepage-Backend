@@ -1,12 +1,10 @@
 package com.hri.hri_web_backend.controller;
 
-import javax.annotation.PostConstruct;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hri.hri_web_backend.domain.Administrator;
-import com.hri.hri_web_backend.domain.Salt;
 import com.hri.hri_web_backend.global.StatusEnum;
 import com.hri.hri_web_backend.global.SuccessResponse;
 import com.hri.hri_web_backend.service.security.AuthService;
@@ -25,17 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @Slf4j
 public class AdminController {
-    // private final AdminService adminService;
     private final AuthService authService;
     private final JwtUtil jwtUtil;
     private final CookieUtil cookieUtil;
     private final RedisUtil redisUtil;
-
-    @PostConstruct //배포시 삭제 , 테스트 코드 때문에 잠시 주석처리
-    public void init() {
-        Administrator administrator = new Administrator("root","pass");
-        signUpUser(administrator);
-    }
 
     @PostMapping("/admin/sign-up")
     public SuccessResponse signUpUser(@RequestBody Administrator administrator) {
