@@ -36,7 +36,7 @@ public class Article {
 	protected Article(){}
 
 	@Builder
-	public Article(String topic, String content, LocalDateTime dateTime, String author, BoardType boardType){
+	public Article(String topic, String content, String author, BoardType boardType){
 		this.topic=topic;
 		this.content=content;
 		this.author=author;
