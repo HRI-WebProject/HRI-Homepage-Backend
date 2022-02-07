@@ -12,7 +12,7 @@
 </br>
 
 ## 👨‍💻 서버 파트 팀원
-<img src="https://user-images.githubusercontent.com/31584255/151804781-4bcbd5da-fe43-474d-879b-8dd9a918f083.png" width="150"> | <img src="" width="150"> 
+<img src="https://user-images.githubusercontent.com/31584255/152821782-7ca8d7e8-c035-4298-acf5-25bf0508468c.png" width="150"> | <img src="https://user-images.githubusercontent.com/31584255/152821471-d859a94e-92fd-4ff1-bf45-e917380ee4bb.png" width="150"> 
  :---------:|:----------:
 이시은 |박계원 
 [sileeee](https://github.com/sileeee) | [Kyewon-Park](https://github.com/Kyewon-Park) 
