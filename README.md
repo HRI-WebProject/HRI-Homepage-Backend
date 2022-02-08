@@ -33,7 +33,7 @@ MySQL
 ## 🔑 Architecture
 - **전체 구성도**
 
-<img width="506" alt="architecture" src="https://user-images.githubusercontent.com/31584255/152929227-2fbf7552-1d76-4863-8cc8-c7ce62d86370.png" width="6000">
+<img width="506" alt="architecture" src="https://user-images.githubusercontent.com/31584255/152929227-2fbf7552-1d76-4863-8cc8-c7ce62d86370.png">
 
 
 - **DB 구조**
@@ -43,7 +43,9 @@ MySQL
 
 ## 📘 프로젝트 화면 구성
 (이미지 첨부 예정)
+
 </br>
+
 
 ## 📑 Documentation
 👉 [API 바로 가기](https://github.com/HRI-WebProject/HRI-Homepage-Backend/wiki/3.1.-API-Design#%EA%B0%9C%EC%9A%94)</br>
@@ -58,7 +60,8 @@ MySQL
 👉 **브랜치 관리 전략** </br>
 Git Flow를 사용하여 브랜치를 관리합니다.
 모든 브랜치는 Pull Request에 리뷰를 진행한 후 merge를 진행합니다.</br>
-<img width="563" alt="git flow" src="https://user-images.githubusercontent.com/31584255/152932423-bcbaee5a-bd21-4b98-82e3-8bc7946c9f61.png" width="800">
+<img width="563" alt="git flow" src="https://user-images.githubusercontent.com/31584255/152932423-bcbaee5a-bd21-4b98-82e3-8bc7946c9f61.png" width="800"> </br>
+*출처 : https://medium.com/@olivier.bossel/git-flow-the-right-way-to-go-f2a65c315818*
 - Master : 배포시 사용합니다.
 - Develop : 완전히 개발이 끝난 부분에 대해서만 Merge를 진행합니다.
 - Feature : 기능 개발을 진행할 때 사용합니다.
