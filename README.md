@@ -33,18 +33,35 @@ MySQL
 ## 🔑 Architecture
 - **전체 구성도**
 
-![image](https://user-images.githubusercontent.com/31584255/152831599-52fc1205-6b12-4c25-ace1-4cd09630297a.png)
+<img width="506" alt="architecture" src="https://user-images.githubusercontent.com/31584255/152929227-2fbf7552-1d76-4863-8cc8-c7ce62d86370.png" width="6000">
+
 
 - **DB 구조**
-<img width="506" alt="스크린샷 2022-01-31 오후 11 08 05" src="https://user-images.githubusercontent.com/31584255/151808212-37655e04-652c-45b9-86a0-19a7c5517f7f.png">
+<img width="506" alt="DB구성" src="https://user-images.githubusercontent.com/31584255/151808212-37655e04-652c-45b9-86a0-19a7c5517f7f.png">
 
 </br>
 
-## 📑 API 문서
-👉 [API 바로 가기](https://github.com/HRI-WebProject/HRI-Homepage-Backend/wiki/3.1.-API-Design#%EA%B0%9C%EC%9A%94)
+## 📘 프로젝트 화면 구성
+(이미지 첨부 예정)
+</br>
+
+## 📑 Documentation
+👉 [API 바로 가기](https://github.com/HRI-WebProject/HRI-Homepage-Backend/wiki/3.1.-API-Design#%EA%B0%9C%EC%9A%94)</br>
+👉 [Usecase 바로 가기](https://github.com/HRI-WebProject/HRI-Homepage-Backend/wiki/3.-Usecase)
 
 </br>
 
 ## 🧩 Rule & Convention
 👉 [Rule & Convention 바로 가기](https://github.com/HRI-WebProject/HRI-Homepage-Backend/wiki/4.-Rule-&-Convention#1-git-commit-message-convention)
+</br>
+
+👉 **브랜치 관리 전략** </br>
+Git Flow를 사용하여 브랜치를 관리합니다.
+모든 브랜치는 Pull Request에 리뷰를 진행한 후 merge를 진행합니다.</br>
+<img width="563" alt="git flow" src="https://user-images.githubusercontent.com/31584255/152932423-bcbaee5a-bd21-4b98-82e3-8bc7946c9f61.png" width="800">
+- Master : 배포시 사용합니다.
+- Develop : 완전히 개발이 끝난 부분에 대해서만 Merge를 진행합니다.
+- Feature : 기능 개발을 진행할 때 사용합니다.
+- Release : 배포를 준비할 때 사용합니다.
+- Hot-Fix : 배포를 진행한 후 발생한 버그를 수정해야 할 때 사용합니다.
 
