@@ -29,7 +29,7 @@ public class PublicationController {
 
 	//ResponseBody
 	//조회
-	@GetMapping(value = "/publications/{type}")
+	@GetMapping(value = "/api/publications/{type}")
 	public SuccessResponse getPublicationByType(@PathVariable PublicationType type){
 		List<Publication> publications = publicationService.findPublicationsByType(type);
 		return SuccessResponse.builder()
@@ -40,7 +40,7 @@ public class PublicationController {
 	}
 
 	//생성
-	@PostMapping(value = "/admin/publications")
+	@PostMapping(value = "/api/admin/publications")
 	public SuccessResponse create(@Valid @RequestBody PublicationDto publicationDto){ //SuccessResponse
 		publicationService.savePublication(publicationDto);
 		return SuccessResponse.builder()
@@ -50,7 +50,7 @@ public class PublicationController {
 	}
 
 	//수정
-	@PutMapping("/admin/publications/{id}")
+	@PutMapping("/api/admin/publications/{id}")
 	public SuccessResponse updatePublications(@Valid @RequestBody PublicationDto publicationDto, @PathVariable Long id){
 		publicationService.updatePublication(publicationDto, id);
 		return SuccessResponse.builder()
@@ -60,7 +60,7 @@ public class PublicationController {
 	}
 
 	//삭제
-	@DeleteMapping("/admin/publications/{id}")
+	@DeleteMapping("/api/admin/publications/{id}")
 	public SuccessResponse deletePublications(@PathVariable Long id){
 		publicationService.deletePublication(id);
 		return SuccessResponse.builder()

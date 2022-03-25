@@ -23,7 +23,7 @@ public class MemberController {
     private final MemberService memberService;
 
     @ResponseBody
-    @GetMapping("/members")
+    @GetMapping("/api/members")
     public SuccessResponse getMembers(){
         List<Member> members = memberService.getMembers();
         return SuccessResponse.builder()
@@ -34,7 +34,7 @@ public class MemberController {
     }
 
     @ResponseBody
-    @GetMapping("/members/{degree}")
+    @GetMapping("/api/members/{degree}")
     public SuccessResponse getMembers(@PathVariable DegreeEnum degree){
         List<MemberByDegreeDto> members = memberService.getMembersByDegree(degree);
         return SuccessResponse.builder()
@@ -45,7 +45,7 @@ public class MemberController {
     }
 
     @ResponseBody
-    @PostMapping("/admin/members")
+    @PostMapping("/api/admin/members")
     public SuccessResponse registerMember(@Valid @RequestBody MemberDto memberDto){
         memberService.registerMember(memberDto);
 
@@ -56,7 +56,7 @@ public class MemberController {
     }
 
     @ResponseBody
-    @PutMapping("/admin/members/{id}")
+    @PutMapping("/api/admin/members/{id}")
     public SuccessResponse updateMember(@Valid @RequestBody MemberDto memberDto, @PathVariable long id){
         memberService.changeMemberInfo(memberDto, id);
         return SuccessResponse.builder()
@@ -66,7 +66,7 @@ public class MemberController {
     }
 
     @ResponseBody
-    @DeleteMapping("/admin/members/{id}")
+    @DeleteMapping("/api/admin/members/{id}")
     public SuccessResponse deleteMember(@PathVariable Long id){
         memberService.deleteMember(id);
         return SuccessResponse.builder()

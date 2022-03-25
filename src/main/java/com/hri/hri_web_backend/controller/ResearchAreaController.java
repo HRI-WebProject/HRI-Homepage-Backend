@@ -24,7 +24,7 @@ import lombok.RequiredArgsConstructor;
 public class ResearchAreaController {
 	private final ResearchAreaService researchAreaService;
 
-	@GetMapping("/researchArea")
+	@GetMapping("/api/researchArea")
 	public SuccessResponse getResearchAreas(){
 		List<ResearchArea> areas = researchAreaService.getResearchAreas();
 		return SuccessResponse.builder()
@@ -34,7 +34,7 @@ public class ResearchAreaController {
 			.build();
 	}
 
-	@PostMapping("/admin/researchArea")
+	@PostMapping("/api/admin/researchArea")
 	public SuccessResponse registerResearchArea(@Valid @RequestBody ResearchArea researchArea){
 		researchAreaService.saveResearchArea(researchArea);
 		return SuccessResponse.builder()
@@ -43,7 +43,7 @@ public class ResearchAreaController {
 			.build();
 	}
 
-	@PutMapping("/admin/researchArea/{id}")
+	@PutMapping("/api/admin/researchArea/{id}")
 	public SuccessResponse updateResearchArea(@Valid @RequestBody ResearchArea researchArea, @PathVariable Long id){
 		researchAreaService.updateResearchArea(researchArea,id);
 		return SuccessResponse.builder()
@@ -52,7 +52,7 @@ public class ResearchAreaController {
 			.build();
 	}
 
-	@DeleteMapping("/admin/researchArea/{id}")
+	@DeleteMapping("/api/admin/researchArea/{id}")
 	public SuccessResponse deleteResearchArea(@PathVariable Long id){
 		researchAreaService.deleteResearchArea(id);
 		return SuccessResponse.builder()

@@ -24,7 +24,7 @@ import lombok.RequiredArgsConstructor;
 public class ArticleController {
 	private final ArticleService articleService;
 
-	@GetMapping("/board/{id}")
+	@GetMapping("/api/board/{id}")
 	public SuccessResponse getArticle(@PathVariable Long id){
 		Optional<Article> article1 = articleService.getArticle(id);
 		if(article1.isEmpty()){
@@ -37,7 +37,7 @@ public class ArticleController {
 			.build();
 	}
 
-	@GetMapping("/board/type/{boardType}")
+	@GetMapping("/api/board/type/{boardType}")
 	public SuccessResponse getArticlesByType(@PathVariable BoardType boardType){
 		List<GetArticleRequestDto> articlesByType = articleService.getArticlesByType(boardType);
 		return SuccessResponse.builder()
@@ -47,7 +47,7 @@ public class ArticleController {
 			.build();
 	}
 
-	@GetMapping("/board/{boardType}/page/{page}")
+	@GetMapping("/api/board/{boardType}/page/{page}")
 	public SuccessResponse getArticlesByTypeWithPage(@PathVariable BoardType boardType, @PathVariable Integer page){
 		Page<GetArticleRequestDto> articlesByType = articleService.getArticlesByTypeWithPage(boardType, page);
 		return SuccessResponse.builder()
@@ -57,7 +57,7 @@ public class ArticleController {
 			.build();
 	}
 
-	@PostMapping("/admin/board")
+	@PostMapping("/api/admin/board")
 	public SuccessResponse registerArticle(@Valid @RequestBody Article article){
 		articleService.registerArticle(article);
 		return SuccessResponse.builder()
@@ -66,7 +66,7 @@ public class ArticleController {
 			.build();
 	}
 
-	@PutMapping("/admin/board/{id}")
+	@PutMapping("/api/admin/board/{id}")
 	public SuccessResponse updateArticle(@Valid @RequestBody UpdateArticleRequestDto dto, @PathVariable Long id) {
 		articleService.updateArticle(dto, id);
 		return SuccessResponse.builder()
@@ -75,7 +75,7 @@ public class ArticleController {
 			.build();
 	}
       
-	@DeleteMapping("/admin/board/{id}")
+	@DeleteMapping("/api/admin/board/{id}")
 	public SuccessResponse deleteArticle(@PathVariable Long id) {
 		articleService.deleteArticle(id);
 		return SuccessResponse.builder()

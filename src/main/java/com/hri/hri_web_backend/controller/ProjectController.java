@@ -30,7 +30,7 @@ public class ProjectController {
 	private final ProjectService projectService;
 
 	@ResponseBody
-	@GetMapping("/projects")
+	@GetMapping("/api/projects")
 	public SuccessResponse getProjects(){
 		List<KrProjectDto> projects = projectService.getProjects();
 		return SuccessResponse.builder()
@@ -41,7 +41,7 @@ public class ProjectController {
 	}
 
 	@ResponseBody
-	@GetMapping("/en/projects")
+	@GetMapping("/api/en/projects")
 	public SuccessResponse getEngProjects(){
 		List<EngProjectDto> projects = projectService.getEngProjects();
 		return SuccessResponse.builder()
@@ -52,7 +52,7 @@ public class ProjectController {
 	}
 
 	@ResponseBody
-	@PostMapping("/admin/projects")
+	@PostMapping("/api/admin/projects")
 	public SuccessResponse registerProject(@Valid @RequestBody ProjectDto dto){
 		projectService.saveProject(dto);
 		return SuccessResponse.builder()
@@ -62,7 +62,7 @@ public class ProjectController {
 	}
 
 	@ResponseBody
-	@PutMapping("/admin/projects/{id}")
+	@PutMapping("/api/admin/projects/{id}")
 	public SuccessResponse updateProject(@Valid @RequestBody UpdateProjectRequestDto dto, @PathVariable long id){
 		projectService.changeProjectInfo(dto, id);
 		return SuccessResponse.builder()
@@ -72,7 +72,7 @@ public class ProjectController {
 	}
 
 	@ResponseBody
-	@DeleteMapping("/admin/projects/{id}")
+	@DeleteMapping("/api/admin/projects/{id}")
 	public SuccessResponse deleteProject(@PathVariable long id){
 		projectService.deleteProjectInfo(id);
 		return SuccessResponse.builder()

@@ -28,7 +28,7 @@ public class AdminController {
     private final CookieUtil cookieUtil;
     private final RedisUtil redisUtil;
 
-    @PostMapping("/admin/sign-up")
+    @PostMapping("/api/admin/sign-up")
     public SuccessResponse signUpUser(@RequestBody Administrator administrator) {
         try {
             authService.signUpAdministrator(administrator);
@@ -41,7 +41,7 @@ public class AdminController {
         }
     }
 
-    @PostMapping("/login")
+    @PostMapping("/api/login")
     public SuccessResponse login(@RequestBody Administrator administrator, HttpServletRequest request, HttpServletResponse response) throws Exception {
         try {
             //spring security - AuthService:loginAdministrator -> admin 객체 생성

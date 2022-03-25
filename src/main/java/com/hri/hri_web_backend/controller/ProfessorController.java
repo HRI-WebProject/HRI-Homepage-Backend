@@ -19,7 +19,7 @@ public class ProfessorController {
     private final ProfessorService professorService;
 
     @ResponseBody
-    @GetMapping("/professors")
+    @GetMapping("/api/professors")
     public SuccessResponse getProfessor(){
         List<Professor> professor = professorService.getProfessor();
         return SuccessResponse.builder()
@@ -30,7 +30,7 @@ public class ProfessorController {
     }
 
     @ResponseBody
-    @PostMapping("/admin/professors")
+    @PostMapping("/api/admin/professors")
     public SuccessResponse registerProfessor(@Valid @RequestBody ProfessorDto professorDto){
         professorService.registerProfessor(professorDto);
         return SuccessResponse.builder()
@@ -40,7 +40,7 @@ public class ProfessorController {
     }
 
     @ResponseBody
-    @PutMapping("/admin/professors/{id}")
+    @PutMapping("/api/admin/professors/{id}")
     public SuccessResponse updateProfessor(@Valid @RequestBody ProfessorDto professorDto, @PathVariable Long id){
         professorService.changeProfessorInfo(professorDto, id);
         return SuccessResponse.builder()
@@ -50,7 +50,7 @@ public class ProfessorController {
     }
 
     @ResponseBody
-    @DeleteMapping("/admin/professors/{id}")
+    @DeleteMapping("/api/admin/professors/{id}")
     public SuccessResponse deleteProfessor(@PathVariable Long id){
         professorService.deleteProfessor(id);
         return SuccessResponse.builder()

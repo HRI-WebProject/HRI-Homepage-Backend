@@ -25,7 +25,7 @@ import lombok.RequiredArgsConstructor;
 public class ResearchEquipmentController {
 	private final ResearchEquipmentService researchEquipmentService;
 
-	@GetMapping("/researchEquipment")
+	@GetMapping("/api/researchEquipment")
 	public SuccessResponse getResearchEquipments(){
 		List<ResearchEquipment> Equipments = researchEquipmentService.getResearchEquipments();
 		return SuccessResponse.builder()
@@ -35,7 +35,7 @@ public class ResearchEquipmentController {
 			.build();
 	}
 
-	@PostMapping("/admin/researchEquipment")
+	@PostMapping("/api/admin/researchEquipment")
 	public SuccessResponse registerResearchEquipment(@Valid @RequestBody ResearchEquipment researchEquipment){
 		researchEquipmentService.saveResearchEquipment(researchEquipment);
 		return SuccessResponse.builder()
@@ -44,7 +44,7 @@ public class ResearchEquipmentController {
 			.build();
 	}
 
-	@PutMapping("/admin/researchEquipment/{id}")
+	@PutMapping("/api/admin/researchEquipment/{id}")
 	public SuccessResponse updateResearchEquipment(@Valid @RequestBody ResearchEquipment researchEquipment, @PathVariable Long id){
 		researchEquipmentService.updateResearchEquipment(researchEquipment,id);
 		return SuccessResponse.builder()
@@ -53,7 +53,7 @@ public class ResearchEquipmentController {
 			.build();
 	}
 
-	@DeleteMapping("/admin/researchEquipment/{id}")
+	@DeleteMapping("/api/admin/researchEquipment/{id}")
 	public SuccessResponse deleteResearchEquipment(@PathVariable Long id){
 		researchEquipmentService.deleteResearchEquipment(id);
 		return SuccessResponse.builder()
