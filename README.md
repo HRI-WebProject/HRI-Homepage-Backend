@@ -27,6 +27,7 @@ Gradle
 Spring Security
 Jpa
 MySQL
+Redis
 ```
 </br>
 
