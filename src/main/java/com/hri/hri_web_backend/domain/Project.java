@@ -20,6 +20,9 @@ public class Project {
 	@Column(name = "project_id")
 	private Long id;
 
+	//진행중 or 종료된 프로젝트 표시
+	private Boolean onGoing;
+
 	private String topic;
 
 	private String subTopic;
@@ -47,8 +50,9 @@ public class Project {
 	}
 
 	@Builder
-	public Project(String topic, String subTopic, String detail1, String detail2, String detail3, String detail4, String detail5,
+	public Project(Boolean onGoing, String topic, String subTopic, String detail1, String detail2, String detail3, String detail4, String detail5,
 		String engTopic, String engSubTopic, String engDetail1, String engDetail2, String engDetail3, String engDetail4, String engDetail5, String photo){
+		this.onGoing = onGoing;
 		this.topic = topic;
 		this.subTopic = subTopic;
 		this.detail1 = detail1;

@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 public class EngProjectDto {
 	private Long id;
+	private Boolean onGoing;
 	private String engTopic;
 	private String engSubTopic;
 	private String engDetail1;
@@ -16,8 +17,9 @@ public class EngProjectDto {
 	private String photo;
 
 	@Builder
-	public EngProjectDto(Long id, String engTopic, String engSubTopic, String engDetail1, String engDetail2, String engDetail3, String engDetail4, String engDetail5, String photo){
+	public EngProjectDto(Long id, Boolean onGoing, String engTopic, String engSubTopic, String engDetail1, String engDetail2, String engDetail3, String engDetail4, String engDetail5, String photo){
 		this.id = id;
+		this.onGoing = onGoing;
 		this.engTopic = engTopic;
 		this.engSubTopic = engSubTopic;
 		this.engDetail1 = engDetail1;
