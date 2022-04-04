@@ -26,20 +26,21 @@ public class ProjectService {
 
 	public List<KrProjectDto> getProjects(){
 		List<Project> projects = projectRepository.findAll();
-		return projects.stream().map(project -> new KrProjectDto(project.getId(), project.getTopic(), project.getSubTopic(),
+		return projects.stream().map(project -> new KrProjectDto(project.getId(), project.getOnGoing(), project.getTopic(), project.getSubTopic(),
 			project.getDetail1(), project.getDetail2(), project.getDetail3(), project.getDetail4(), project.getDetail5(),
 			project.getPhoto())).collect(Collectors.toList());
 	}
 
 	public List<EngProjectDto> getEngProjects() {
 		List<Project> projects = projectRepository.findAll();
-		return projects.stream().map(project -> new EngProjectDto(project.getId(), project.getEngTopic(), project.getEngSubTopic(),
+		return projects.stream().map(project -> new EngProjectDto(project.getId(), project.getOnGoing(), project.getEngTopic(), project.getEngSubTopic(),
 			project.getEngDetail1(), project.getEngDetail2(), project.getEngDetail3(), project.getEngDetail4(),
 			project.getEngDetail5(), project.getPhoto())).collect(Collectors.toList());
 	}
 
 	public void saveProject(ProjectDto dto){
 		Project project = Project.builder()
+			.onGoing(dto.getOnGoing())
 			.topic(dto.getTopic())
 			.subTopic(dto.getSubTopic())
 			.detail1(dto.getDetail1())
@@ -66,6 +67,7 @@ public class ProjectService {
 			throw new NullPointerException();
 
 		updateProject.ifPresent(selectProject->{
+			selectProject.setOnGoing(dto.getOnGoing());
 			selectProject.setTopic(dto.getTopic());
 			selectProject.setSubTopic(dto.getSubTopic());
 			selectProject.setDetail1(dto.getDetail1());

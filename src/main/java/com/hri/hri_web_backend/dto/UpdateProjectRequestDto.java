@@ -6,6 +6,8 @@ import lombok.Getter;
 @Getter
 public class UpdateProjectRequestDto {
 
+	private Boolean onGoing;
+
 	private String topic;
 	private String subTopic;
 	private String detail1;
@@ -29,8 +31,9 @@ public class UpdateProjectRequestDto {
 	}
 
 	@Builder
-	public UpdateProjectRequestDto(String topic, String subTopic, String detail1, String detail2, String detail3, String detail4, String detail5,
+	public UpdateProjectRequestDto(Boolean onGoing, String topic, String subTopic, String detail1, String detail2, String detail3, String detail4, String detail5,
 		String engTopic, String engSubTopic, String engDetail1, String engDetail2, String engDetail3, String engDetail4, String engDetail5, String photo){
+		this.onGoing = onGoing;
 		this.topic = topic;
 		this.subTopic = subTopic;
 		this.detail1 = detail1;
