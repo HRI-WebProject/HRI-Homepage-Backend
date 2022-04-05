@@ -13,7 +13,6 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Builder
 public class Contact {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,4 +29,20 @@ public class Contact {
 
 	private String officeLocation;
 	private String officePhone;
+
+	@Builder
+	public Contact(String professorName, String professorEmail, String professorPhone,
+		String labManagerName, String labManagerEmail, String labManagerPhone, String officeLocation,
+		String officePhone) {
+		this.professorName = professorName;
+		this.professorEmail = professorEmail;
+		this.professorPhone = professorPhone;
+		this.labManagerName = labManagerName;
+		this.labManagerEmail = labManagerEmail;
+		this.labManagerPhone = labManagerPhone;
+		this.officeLocation = officeLocation;
+		this.officePhone = officePhone;
+	}
+
+	protected Contact() {}
 }

@@ -17,7 +17,7 @@ INSERT INTO publication (topic, inventor, filling_no, filling_date, granted_no, 
 INSERT INTO publication (topic, inventor, filling_no, filling_date, granted_no, granted_date, progress, link, detail, publication_type) VALUES ('공간 메커니즘을 이용한 이동로봇과 이를 이용한 이동로봇 협동 제어 시스템 및 방법','정진우', '10-2009-0096704', '2009-10-12', '10-1000879', '2009-12-07', '기술이전', 'ex_link2', 'ex_detail2', 'JOURNAL');
 INSERT INTO publication (topic, inventor, filling_no, filling_date, granted_no, granted_date, progress, link, detail, publication_type) VALUES ('ex_topic3','정진우', '10-2008-012', '2008-12-15', '10-0915833', '2009-08-11', '기술이전', 'ex_link3', 'ex_detail3', 'JOURNAL');
 
-INSERT INTO project (detail1, detail2, detail3, detail4, detail5, eng_detail1, eng_detail2, eng_detail3, eng_detail4, eng_detail5, eng_sub_topic, eng_topic, photo, sub_topic, topic) VALUES ('ex_detail1', 'ex_detail2', 'ex_detail3', 'ex_detail4', 'ex_detail5', 'ex_eng_detail1', 'ex_eng_detail2', 'ex_eng_detail3', 'ex_eng_detail4', 'ex_eng_detail5', 'ex_eng_subTopic', 'ex_eng_topic', 'ex_photo_path', 'ex_sub_topic', 'ex_topic');
+INSERT INTO project (on_going, detail1, detail2, detail3, detail4, detail5, eng_detail1, eng_detail2, eng_detail3, eng_detail4, eng_detail5, eng_sub_topic, eng_topic, photo, sub_topic, topic) VALUES (true, 'ex_detail1', 'ex_detail2', 'ex_detail3', 'ex_detail4', 'ex_detail5', 'ex_eng_detail1', 'ex_eng_detail2', 'ex_eng_detail3', 'ex_eng_detail4', 'ex_eng_detail5', 'ex_eng_subTopic', 'ex_eng_topic', 'ex_photo_path', 'ex_sub_topic', 'ex_topic');
 
 INSERT INTO research_area (detail, eng_detail, eng_name, name, photo) VALUES ('ex_detail', 'ex_eng_detail', 'ex_eng_name', 'ex_name', 'ex_photo_path');
 

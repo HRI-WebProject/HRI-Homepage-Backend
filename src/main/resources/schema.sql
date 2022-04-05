@@ -63,6 +63,7 @@ create table professor (
 
 create table project (
                          project_id bigint not null auto_increment,
+                         on_going bit,
                          detail1 varchar(255),
                          detail2 varchar(255),
                          detail3 varchar(255),

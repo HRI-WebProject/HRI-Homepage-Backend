@@ -54,7 +54,7 @@ public class ContactController {
 		contactService.changeContactInfo(contactDto, id);
 		return SuccessResponse.builder()
 			.status(StatusEnum.OK)
-			.message("교수 소개 수정 성공")
+			.message("Contact 수정 성공")
 			.build();
 	}
 
@@ -64,7 +64,7 @@ public class ContactController {
 		contactService.deleteContact(id);
 		return SuccessResponse.builder()
 			.status(StatusEnum.OK)
-			.message("교수 소개 삭제 성공")
+			.message("Contact 삭제 성공")
 			.build();
 	}
 }
