@@ -43,8 +43,7 @@ Redis
 </br>
 
 ## 📘 프로젝트 화면 구성
-(이미지 첨부 예정)
-
+<img width="548" alt="image" src="https://user-images.githubusercontent.com/31584255/163206449-78f2c587-addc-40c8-8974-313a34b546b2.png">
 </br>
 
 
