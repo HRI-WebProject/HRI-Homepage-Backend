@@ -7,7 +7,7 @@
 ### 목표
 - 객체지향을 따라 설계하며 테스트 코드를 작성합니다.
 - 유지보수성을 고려하여 개발합니다
-- NAS(Network Attached Storage)클라우드에 서버를 구축하여 배포합니다.
+- NAS(Network Attached Storage)에 서버를 구축하여 배포합니다.
 
 </br>
 
